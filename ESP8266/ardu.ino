@@ -58,6 +58,9 @@ struct Loop
   }
 };
 
+Strip strip_0(60, 4, 60, NEO_RGB + NEO_KHZ800);
+struct Loop strip0loop0(1, false, 1);
+
 void strips_loop()
 {
   if (strip0_loop0() & 0x01)
@@ -90,9 +93,6 @@ uint8_t strip0_loop0()
   return ret;
 }
 
-Strip strip_0(60, 8, 60, NEO_RGB + NEO_KHZ800);
-struct Loop strip0loop0(1, false, 1);
-
 // MARK: - MQTT Broker delegate methods
 class MDLMQTTBroker : public uMQTTBroker
 {
@@ -105,7 +105,7 @@ public:
 
   virtual void onData(String topic, const char *data, uint32_t length)
   {
-    if (data.arguments[0] == 'A')
+    if (strcmp(data, "A") == 0)
     {
       strip_0.strip.begin();
       if (strip0_loop0() & 0x01)
