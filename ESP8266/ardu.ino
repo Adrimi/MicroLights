@@ -2,6 +2,7 @@
 #include <ESP8266mDNS.h>
 #include <Arduino.h>
 #include "uMQTTBroker.h"
+#include "Strip.h"
 
 // MARK: - WIFI 
 #define WLAN_SSID       "UPC2253338"  // Wi-Fi SSID
@@ -16,6 +17,10 @@ WiFiClient client;
 // MARK: - mDNS
 MDNSResponder::hMDNSService hMDNSService = 0;
 
+// MARK: - Strip
+Strip strip_0(60, 8, 60, NEO_RGB + NEO_KHZ800);
+struct Loop strip0loop0(1, false, 1);
+
 class MDLMQTTBroker: public uMQTTBroker {
   public:
   virtual bool onConnect(IPAddress addr, uint16_t client_count) {
@@ -27,7 +32,12 @@ class MDLMQTTBroker: public uMQTTBroker {
     String config; 
     sscanf(data, "%d", config);
     
-  
+    if (config == "start") {
+      strip_0.strip.begin();
+      if(strip0_loop0() & 0x01) {
+        strip_0.strip.show();
+      }
+    } 
 
     if (sscanf(data, "%d,%d,%d,%d,%d.", &red, &green, &blue, &dimmer, &address) == 5) {
       dmx.write(address, dimmer);
@@ -58,6 +68,7 @@ void setupWiFi() {
 
 void setupMQTTBroker() {
   broker.init();
+
   broker.subscribe(APP_ID "/" DATASTORE);
   Serial.println("MQTT broker started");
 }
