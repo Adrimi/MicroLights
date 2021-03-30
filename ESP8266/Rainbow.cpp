@@ -5,12 +5,12 @@ Rainbow::Rainbow(int pin, int _ledNumber)
 {
   pixels = Adafruit_NeoPixel(ledNumber, pin, NEO_RGB + NEO_KHZ800);
   ledNumber = _ledNumber;
+  pixels.begin();
 }
 
 void Rainbow::clear()
 {
   Serial.println("clear effect");
-  pixels.begin();
   pixels.clear();
 }
 
@@ -28,5 +28,5 @@ void Rainbow::wave()
     pixels.setPixelColor(i, 255, 0, 0);
   }
   pixels.setBrightness(255);
-  show();
+  pixels.show();
 }
