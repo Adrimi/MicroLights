@@ -2,6 +2,7 @@
 #include <ESP8266mDNS.h>
 #include <Arduino.h>
 #include "uMQTTBroker.h"
+#include "Rainbow.h"
 
 // MARK: - WIFI
 #define WLAN_SSID "UPC2253338"   // Wi-Fi SSID
@@ -31,6 +32,11 @@ public:
     Serial.println(data);
     if (strcmp(data, "A...") == 0)
     {
+      Serial.println("Rainbow effect");
+      Rainbow rainbow = Rainbow(60, 4);
+      rainbow.clear();
+      rainbow.show();
+      rainbow.wave();
     }
   }
 };
