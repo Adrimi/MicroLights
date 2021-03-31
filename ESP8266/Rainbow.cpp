@@ -25,11 +25,13 @@ void Rainbow::show()
 RGB Rainbow::rainbowColorFor(int ledIndex)
 {
   float fraction = (float)ledIndex / (float)ledNumber;
+  float brightness = 255;
+  float multiplier = 6;
   RGB colors;
 
-  colors.r = round(255 * fraction);
-  colors.g = round(255 * fmodf((fraction + (1 / 3)), 1));
-  colors.b = round(255 * (1 - (fmodf((fraction + 2 / 3), 1) - 1 / 2)));
+  colors.r = round(brightness * fraction * multiplier);
+  colors.g = round(brightness * fmodf((fraction + 0.3333), (float)1));
+  colors.b = round(brightness * (1 - (fmodf((fraction + 0.6667), (float)1) - 0.5)) * multiplier);
 
   return colors;
 }
