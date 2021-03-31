@@ -9,13 +9,18 @@
 #define WLAN_PASS "Tefvba3ehtCr" // Wi-Fi Password
 WiFiClient client;
 
+// MARK: - mDNS
+MDNSResponder::hMDNSService hMDNSService = 0;
+
 // MARK: - MQTT
 #define APP_ID "esp"
 #define DATASTORE "config"
 #define MQTT_PORT 1883
 
-// MARK: - mDNS
-MDNSResponder::hMDNSService hMDNSService = 0;
+// MARK: - Rainbow
+#define PIN 4
+#define LEDNUMBER 60
+Rainbow rainbow = Rainbow(LEDNUMBER, PIN);
 
 // MARK: - MQTT Broker delegate methods
 class MDLMQTTBroker : public uMQTTBroker
@@ -29,14 +34,21 @@ public:
 
   virtual void onData(String topic, const char *data, uint32_t length)
   {
-    Serial.println(data);
-    if (strcmp(data, "A...") == 0)
+    int config;
+    if (sscanf(data, "%d$", &config) == 1)
     {
-      Serial.println("Rainbow effect");
-      Rainbow rainbow = Rainbow(60, 4);
-      rainbow.clear();
-      rainbow.show();
-      rainbow.wave();
+      if (config == 0)
+      {
+        rainbow.clear();
+      }
+      else if (config == 1)
+      {
+        rainbow.show();
+      }
+      else if (config == 2)
+      {
+        rainbow.wave();
+      }
     }
   }
 };

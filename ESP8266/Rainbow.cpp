@@ -1,11 +1,17 @@
 #include "Rainbow.h"
-#include <Adafruit_NeoPixel.h>
+#include "Adafruit_NeoPixel.h"
 
-Rainbow::Rainbow(int pin, int _ledNumber)
+Rainbow::Rainbow(int _ledNumber, int pin)
 {
-  pixels = Adafruit_NeoPixel(ledNumber, pin, NEO_RGB + NEO_KHZ800);
+  pixels = Adafruit_NeoPixel(_ledNumber, pin, NEO_RGB + NEO_KHZ800);
   ledNumber = _ledNumber;
   pixels.begin();
+}
+
+Rainbow::~Rainbow()
+{
+  pixels = NULL;
+  ledNumber = NULL;
 }
 
 void Rainbow::clear()
@@ -28,5 +34,5 @@ void Rainbow::wave()
     pixels.setPixelColor(i, 255, 0, 0);
   }
   pixels.setBrightness(255);
-  pixels.show();
+  show();
 }

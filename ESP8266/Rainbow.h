@@ -1,4 +1,4 @@
-#include <Adafruit_NeoPixel.h>
+#include "Adafruit_NeoPixel.h"
 
 #ifndef RAINBOW_H
 #define RAINBOW_H
@@ -14,7 +14,8 @@ public:
   void show();
   void wave();
 
-  Rainbow(int pin, int ledNumber);
+  Rainbow(int _ledNumber, int pin);
+  ~Rainbow();
 };
 
 #endif // RAINBOW_H
