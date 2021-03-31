@@ -1,5 +1,6 @@
 #include "Rainbow.h"
 #include "Adafruit_NeoPixel.h"
+#include <math.h>
 
 Rainbow::Rainbow(int _ledNumber, int pin)
 {
@@ -14,9 +15,23 @@ Rainbow::~Rainbow()
   ledNumber = NULL;
 }
 
+// MARK: - PRIVATE API
+
 void Rainbow::show()
 {
   pixels.show();
+}
+
+RGB Rainbow::rainbowColorFor(int ledIndex)
+{
+  float fraction = (float)ledIndex / (float)ledNumber;
+  RGB colors;
+
+  colors.r = round(255 * fraction);
+  colors.g = round(255 * fmodf((fraction + (1 / 3)), 1));
+  colors.b = round(255 * (1 - (fmodf((fraction + 2 / 3), 1) - 1 / 2)));
+
+  return colors;
 }
 
 // MARK: - PUBLIC API
@@ -35,4 +50,19 @@ void Rainbow::simpleGreen()
   }
   pixels.setBrightness(255);
   show();
+}
+
+void Rainbow::rainbow()
+{
+  for (int i = 0; i < ledNumber; i++)
+  {
+    RGB colors = rainbowColorFor(i);
+    pixels.setPixelColor(i, colors.r, colors.g, colors.b);
+  }
+  pixels.setBrightness(255);
+  show();
+}
+
+void Rainbow::rainbowWave()
+{
 }

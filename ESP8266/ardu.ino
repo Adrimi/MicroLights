@@ -47,6 +47,7 @@ public:
       }
       else if (config == 2)
       {
+        rainbow.rainbow();
       }
     }
   }
