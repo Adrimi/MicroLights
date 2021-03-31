@@ -43,11 +43,10 @@ public:
       }
       else if (config == 1)
       {
-        rainbow.show();
+        rainbow.simpleGreen();
       }
       else if (config == 2)
       {
-        rainbow.wave();
       }
     }
   }

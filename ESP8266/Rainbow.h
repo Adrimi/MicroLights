@@ -8,11 +8,11 @@ class Rainbow
 private:
   Adafruit_NeoPixel pixels;
   int ledNumber;
+  void show();
 
 public:
   void clear();
-  void show();
-  void wave();
+  void simpleGreen();
 
   Rainbow(int _ledNumber, int pin);
   ~Rainbow();

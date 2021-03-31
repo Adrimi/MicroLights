@@ -14,21 +14,21 @@ Rainbow::~Rainbow()
   ledNumber = NULL;
 }
 
-void Rainbow::clear()
-{
-  Serial.println("clear effect");
-  pixels.clear();
-}
-
 void Rainbow::show()
 {
-  Serial.println("show effect");
   pixels.show();
 }
 
-void Rainbow::wave()
+// MARK: - PUBLIC API
+
+void Rainbow::clear()
 {
-  Serial.println("wave effect - test 2");
+  pixels.clear();
+  show();
+}
+
+void Rainbow::simpleGreen()
+{
   for (int i = 0; i < ledNumber; i++)
   {
     pixels.setPixelColor(i, 255, 0, 0);
