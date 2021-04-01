@@ -1,17 +1,18 @@
 #include "Rainbow.h"
 #include "Adafruit_NeoPixel.h"
+#include "LightController.h"
 #include <math.h>
 
-Rainbow::Rainbow(int _ledNumber, int pin)
+Rainbow::Rainbow(LightController *_controller, int _ledNumber, int pin)
 {
-  pixels = Adafruit_NeoPixel(_ledNumber, pin, NEO_RGB + NEO_KHZ800);
+  controller = _controller;
   ledNumber = _ledNumber;
   pixels.begin();
 }
 
 Rainbow::~Rainbow()
 {
-  pixels = NULL;
+  controller = NULL;
   ledNumber = NULL;
 }
 
@@ -19,7 +20,7 @@ Rainbow::~Rainbow()
 
 void Rainbow::show()
 {
-  pixels.show();
+  controller->show();
 }
 
 RGB Rainbow::rainbowColorFor(int ledIndex)
@@ -40,7 +41,7 @@ RGB Rainbow::rainbowColorFor(int ledIndex)
 
 void Rainbow::clear()
 {
-  pixels.clear();
+  controller->.clear();
   show();
 }
 
@@ -48,9 +49,9 @@ void Rainbow::simpleGreen()
 {
   for (int i = 0; i < ledNumber; i++)
   {
-    pixels.setPixelColor(i, 255, 0, 0);
+    controller->.setPixelColor(i, 255, 0, 0);
   }
-  pixels.setBrightness(255);
+  controller->.setBrightness(255);
   show();
 }
 
@@ -59,9 +60,9 @@ void Rainbow::rainbow()
   for (int i = 0; i < ledNumber; i++)
   {
     RGB colors = rainbowColorFor(i);
-    pixels.setPixelColor(i, colors.r, colors.g, colors.b);
+    controller->.setPixelColor(i, colors.r, colors.g, colors.b);
   }
-  pixels.setBrightness(255);
+  controller->.setBrightness(255);
   show();
 }
 

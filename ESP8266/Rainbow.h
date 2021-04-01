@@ -1,4 +1,4 @@
-#include "Adafruit_NeoPixel.h"
+#include "LightController.h"
 
 #ifndef RAINBOW_H
 #define RAINBOW_H
@@ -11,7 +11,7 @@ struct RGB
 class Rainbow
 {
 private:
-  Adafruit_NeoPixel pixels;
+  LightController *controller;
   int ledNumber;
 
   void show();
@@ -23,7 +23,7 @@ public:
   void rainbow();
   void rainbowWave();
 
-  Rainbow(int _ledNumber, int pin);
+  Rainbow(LightController *controller);
   ~Rainbow();
 };
 

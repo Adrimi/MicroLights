@@ -3,6 +3,8 @@
 #include <Arduino.h>
 #include "uMQTTBroker.h"
 #include "Rainbow.h"
+#include "LightController.h"
+#include "Adafruit_NeoPixel.h"
 
 // MARK: - WIFI
 #define WLAN_SSID "UPC2253338"   // Wi-Fi SSID
@@ -17,10 +19,12 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 #define DATASTORE "config"
 #define MQTT_PORT 1883
 
-// MARK: - Rainbow
+// MARK: - LIGHT CONTROLLER
 #define PIN 4
 #define LEDNUMBER 60
-Rainbow rainbow = Rainbow(LEDNUMBER, PIN);
+Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_RGB + NEO_KHZ800);
+LightController controller = NeopixelLightController(neoPixel);
+Rainbow rainbow = Rainbow(controller);
 
 // MARK: - MQTT Broker delegate methods
 class MDLMQTTBroker : public uMQTTBroker
@@ -48,6 +52,10 @@ public:
       else if (config == 2)
       {
         rainbow.rainbow();
+      }
+      else if (config == 3)
+      {
+        rainbow.rainbowWave();
       }
     }
   }
