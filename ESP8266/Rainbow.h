@@ -3,27 +3,22 @@
 #ifndef RAINBOW_H
 #define RAINBOW_H
 
-struct RGB
-{
-  uint8 r, g, b;
-};
-
 class Rainbow
 {
 private:
-  LightController *controller;
-  int ledNumber;
+  LightController &controller;
 
   void show();
   RGB rainbowColorFor(int ledIndex);
 
 public:
+  // MARK: - Declaration of light effects that Rainbow offers in public API
   void clear();
   void simpleGreen();
   void rainbow();
   void rainbowWave();
 
-  Rainbow(LightController *controller);
+  Rainbow(LightController &controller);
   ~Rainbow();
 };
 

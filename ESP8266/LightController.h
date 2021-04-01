@@ -3,14 +3,17 @@
 
 struct RGB
 {
-  uint8 r, g, b;
+  int r, g, b;
 };
 
 class LightController
 {
-  virtual void show();
-  virtual void setColor(int index, RGB color);
-  virtual void setBrightness(uint8 level);
+public:
+  int ledNumber;
+  virtual void clear() = 0;
+  virtual void show() = 0;
+  virtual void setColor(int index, RGB color) = 0;
+  virtual void setBrightness(int level) = 0;
 };
 
 #endif // LIGHTCONTROLLER_H

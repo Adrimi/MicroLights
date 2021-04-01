@@ -2,9 +2,6 @@
 #include <ESP8266mDNS.h>
 #include <Arduino.h>
 #include "uMQTTBroker.h"
-#include "Rainbow.h"
-#include "LightController.h"
-#include "Adafruit_NeoPixel.h"
 
 // MARK: - WIFI
 #define WLAN_SSID "UPC2253338"   // Wi-Fi SSID
@@ -20,14 +17,19 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 #define MQTT_PORT 1883
 
 // MARK: - LIGHT CONTROLLER
+#include "Rainbow.h"
+#include "NeopixelLightController.h"
+#include "Adafruit_NeoPixel.h"
+
 #define PIN 4
 #define LEDNUMBER 60
+
 Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_RGB + NEO_KHZ800);
-LightController controller = NeopixelLightController(neoPixel);
+NeopixelLightController controller = NeopixelLightController(neoPixel);
 Rainbow rainbow = Rainbow(controller);
 
 // MARK: - MQTT Broker delegate methods
-class MDLMQTTBroker : public uMQTTBroker
+class MLMQTTBroker : public uMQTTBroker
 {
 public:
   virtual bool onConnect(IPAddress addr, uint16_t client_count)
@@ -61,7 +63,7 @@ public:
   }
 };
 
-MDLMQTTBroker broker;
+MLMQTTBroker broker;
 
 void setupWiFi()
 {

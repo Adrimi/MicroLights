@@ -1,31 +1,23 @@
 #include "Rainbow.h"
-#include "Adafruit_NeoPixel.h"
-#include "LightController.h"
 #include <math.h>
 
-Rainbow::Rainbow(LightController *_controller, int _ledNumber, int pin)
-{
-  controller = _controller;
-  ledNumber = _ledNumber;
-  pixels.begin();
-}
+Rainbow::Rainbow(LightController &controller) : controller(controller) {}
 
 Rainbow::~Rainbow()
 {
-  controller = NULL;
-  ledNumber = NULL;
+  // controller = NULL;
 }
 
 // MARK: - PRIVATE API
 
 void Rainbow::show()
 {
-  controller->show();
+  controller.show();
 }
 
 RGB Rainbow::rainbowColorFor(int ledIndex)
 {
-  float fraction = (float)ledIndex / (float)ledNumber;
+  float fraction = (float)ledIndex / (float)controller.ledNumber;
   float brightness = 255;
   float multiplier = 6;
   RGB colors;
@@ -41,29 +33,33 @@ RGB Rainbow::rainbowColorFor(int ledIndex)
 
 void Rainbow::clear()
 {
-  controller->.clear();
+  controller.clear();
   show();
 }
 
 void Rainbow::simpleGreen()
 {
-  for (int i = 0; i < ledNumber; i++)
+  for (int i = 0; i < controller.ledNumber; i++)
   {
-    controller->.setPixelColor(i, 255, 0, 0);
+    RGB colors = {
+        .r = 0,
+        .g = 255,
+        .b = 0};
+    controller.setColor(i, colors);
   }
-  controller->.setBrightness(255);
+  controller.setBrightness(255);
   show();
 }
 
 void Rainbow::rainbow()
 {
-  for (int i = 0; i < ledNumber; i++)
-  {
-    RGB colors = rainbowColorFor(i);
-    controller->.setPixelColor(i, colors.r, colors.g, colors.b);
-  }
-  controller->.setBrightness(255);
-  show();
+  // for (int i = 0; i < ledNumber; i++)
+  // {
+  //   RGB colors = rainbowColorFor(i);
+  //   controller->.setPixelColor(i, colors.r, colors.g, colors.b);
+  // }
+  // controller->.setBrightness(255);
+  // show();
 }
 
 void Rainbow::rainbowWave()
