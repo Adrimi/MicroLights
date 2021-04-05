@@ -20,7 +20,7 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 // MARK: - LIGHT CONTROLLER
 #include "Rainbow.h"
 #include "NeopixelLightController.h"
-#include "Adafruit_NeoPixel.h"
+#include <Adafruit_NeoPixel.h>
 
 #define PIN 4
 #define LEDNUMBER 60

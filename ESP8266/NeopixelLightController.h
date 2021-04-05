@@ -1,5 +1,5 @@
 #include "RGB.h"
-#include "Adafruit_NeoPixel.h"
+#include <Adafruit_NeoPixel.h>
 #include "LightController.h"
 
 #ifndef NEOPIXELLIGHTCONTROLLER_H
