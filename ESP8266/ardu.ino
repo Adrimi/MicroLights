@@ -2,6 +2,7 @@
 #include <ESP8266mDNS.h>
 #include <Arduino.h>
 #include "uMQTTBroker.h"
+#include "MessageMapper.h"
 
 // MARK: - WIFI
 #define WLAN_SSID "UPC2253338"   // Wi-Fi SSID
@@ -40,26 +41,7 @@ public:
 
   virtual void onData(String topic, const char *data, uint32_t length)
   {
-    int config;
-    if (sscanf(data, "%d$", &config) == 1)
-    {
-      if (config == 0)
-      {
-        rainbow.clear();
-      }
-      else if (config == 1)
-      {
-        rainbow.simpleGreen();
-      }
-      else if (config == 2)
-      {
-        rainbow.rainbow();
-      }
-      else if (config == 3)
-      {
-        rainbow.rainbowWave();
-      }
-    }
+    MessageMapper::mapToRainbow(data, rainbow);
   }
 };
 
