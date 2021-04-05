@@ -1,3 +1,4 @@
+#include "RGB.h"
 #include "Adafruit_NeoPixel.h"
 #include "LightController.h"
 

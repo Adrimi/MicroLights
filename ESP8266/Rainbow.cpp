@@ -1,4 +1,5 @@
 #include "Rainbow.h"
+#include "RGB.h"
 #include <math.h>
 
 Rainbow::Rainbow(LightController &controller) : controller(controller) {}

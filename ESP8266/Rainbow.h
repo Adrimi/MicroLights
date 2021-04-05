@@ -1,4 +1,5 @@
 #include "LightController.h"
+#include "RGB.h"
 
 #ifndef RAINBOW_H
 #define RAINBOW_H

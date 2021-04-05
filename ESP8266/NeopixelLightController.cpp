@@ -1,3 +1,4 @@
+#include "RGB.h"
 #include "NeopixelLightController.h"
 
 NeopixelLightController::NeopixelLightController(Adafruit_NeoPixel pixels) : pixels(pixels)

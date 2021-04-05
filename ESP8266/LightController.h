@@ -1,10 +1,7 @@
+#include "RGB.h"
+
 #ifndef LIGHTCONTROLLER_H
 #define LIGHTCONTROLLER_H
-
-struct RGB
-{
-  int r, g, b;
-};
 
 class LightController
 {
