@@ -1,5 +1,6 @@
 #include "RGB.h"
 #include "NeopixelLightController.h"
+#include <Adafruit_NeoPixel.h>
 
 NeopixelLightController::NeopixelLightController(Adafruit_NeoPixel pixels, int ledNumber) : pixels(pixels), ledNumber(ledNumber)
 {
@@ -18,7 +19,7 @@ void NeopixelLightController::show()
 
 void NeopixelLightController::setColor(int index, RGB color)
 {
-  pixels.setcolor(index, color.r, color.g, color.b);
+  pixels.setColor(index, color.r, color.g, color.b);
 }
 
 void NeopixelLightController::setBrightness(int level)
