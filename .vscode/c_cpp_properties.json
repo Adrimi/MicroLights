@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/Users/adrian/Documents/Arduino/libraries/**",
+                "/Applications/Arduino.app/Contents/Java/**",
+                "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Applications/Xcode 12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "macos-clang-x64"
+        }
+    ],
+    "version": 4
+}
