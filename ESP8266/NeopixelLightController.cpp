@@ -2,9 +2,8 @@
 #include "NeopixelLightController.h"
 #include <Adafruit_NeoPixel.h>
 
-NeopixelLightController::NeopixelLightController(Adafruit_NeoPixel pixels) : pixels(pixels)
+NeopixelLightController::NeopixelLightController(Adafruit_NeoPixel &pixels) : pixels(pixels)
 {
-  Serial.println("initialization");
   pixels.begin();
 }
 
@@ -23,7 +22,7 @@ void NeopixelLightController::show()
 void NeopixelLightController::setColor(int index, RGB color)
 {
   Serial.println("setColor commmand | " + (String)index + " : " + (String)color.r + ", " + (String)color.g + ", " + (String)color.b + ".");
-  pixels.setPixelColor(index, color.r, color.g, color.b);
+  pixels.setPixelColor(index, color.g, color.r, color.b);
 }
 
 void NeopixelLightController::setBrightness(int level)
