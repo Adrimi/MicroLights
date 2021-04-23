@@ -11,6 +11,7 @@ public:
     int config;
     if (sscanf(data, "%d$", &config) == 1)
     {
+      Serial.println("Decoded value: " + (String)config);
       if (config == 0)
       {
         rainbow.clear();

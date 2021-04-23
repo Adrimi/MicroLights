@@ -9,7 +9,6 @@ class NeopixelLightController : public LightController
 {
 private:
   Adafruit_NeoPixel pixels;
-  int ledNumber;
 
 public:
   virtual void clear();
@@ -17,7 +16,7 @@ public:
   virtual void setColor(int index, RGB color);
   virtual void setBrightness(int level);
 
-  NeopixelLightController(Adafruit_NeoPixel pixels, int ledNumber);
+  NeopixelLightController(Adafruit_NeoPixel pixels);
 };
 
 #endif // NEOPIXELLIGHTCONTROLLER_H

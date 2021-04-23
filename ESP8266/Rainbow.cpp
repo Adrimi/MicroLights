@@ -1,13 +1,9 @@
 #include "Rainbow.h"
 #include "RGB.h"
 #include <math.h>
+#include <Arduino.h>
 
-Rainbow::Rainbow(LightController &controller) : controller(controller) {}
-
-Rainbow::~Rainbow()
-{
-  // controller = NULL;
-}
+Rainbow::Rainbow(LightController &controller, int ledCount) : controller(controller), ledCount(ledCount) {}
 
 // MARK: - PRIVATE API
 
@@ -18,7 +14,7 @@ void Rainbow::show()
 
 RGB Rainbow::rainbowColorFor(int ledIndex)
 {
-  float fraction = (float)ledIndex / (float)controller.ledNumber;
+  float fraction = (float)ledIndex / (float)ledCount;
   float brightness = 255;
   float multiplier = 6;
   RGB colors;
@@ -40,7 +36,7 @@ void Rainbow::clear()
 
 void Rainbow::simpleGreen()
 {
-  for (int i = 0; i < controller.ledNumber; i++)
+  for (int i = 0; i < ledCount; i++)
   {
     RGB colors = {
         .r = 0,

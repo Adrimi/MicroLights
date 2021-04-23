@@ -27,7 +27,7 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 
 Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_RGB + NEO_KHZ800);
 NeopixelLightController controller = NeopixelLightController(neoPixel);
-Rainbow rainbow = Rainbow(controller);
+Rainbow rainbow = Rainbow(controller, LEDNUMBER);
 
 // MARK: - MQTT Broker delegate methods
 class MLMQTTBroker : public uMQTTBroker
@@ -41,6 +41,7 @@ public:
 
   virtual void onData(String topic, const char *data, uint32_t length)
   {
+    Serial.println(topic + ": " + (String)data);
     MessageMapper::mapToRainbow(data, rainbow);
   }
 };
