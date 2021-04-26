@@ -11,7 +11,6 @@ private:
   int ledCount;
 
   void show();
-  RGB rainbowColorFor(int ledIndex);
 
 public:
   // MARK: - Declaration of light effects that Rainbow offers in public API
@@ -21,6 +20,7 @@ public:
   void rainbowWave();
 
   Rainbow(LightController &controller, int ledCount);
+  RGB rainbowColorFor(int ledIndex);
 };
 
 #endif // RAINBOW_H
