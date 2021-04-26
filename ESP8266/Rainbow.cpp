@@ -1,10 +1,15 @@
 #include "Rainbow.h"
 #include "RGB.h"
 #include <math.h>
+#include <Arduino.h>
 
 #define PI 3.14
+#define WAVE_STATE 3
 
-Rainbow::Rainbow(LightController &controller, int ledCount) : controller(controller), ledCount(ledCount) {}
+Rainbow::Rainbow(LightController &controller, int ledCount) : controller(controller), ledCount(ledCount)
+{
+  state = 0;
+}
 
 // MARK: - PRIVATE API
 
@@ -38,14 +43,25 @@ RGB Rainbow::rainbowColorFor(int ledIndex)
 
 // MARK: - PUBLIC API
 
+void Rainbow::update()
+{
+  Serial.println((String)state);
+  if (state == WAVE_STATE)
+  {
+    rainbowWave();
+  }
+}
+
 void Rainbow::clear()
 {
+  state = 0;
   controller.clear();
   show();
 }
 
 void Rainbow::simpleGreen()
 {
+  state = 1;
   for (int i = 0; i < ledCount; i++)
   {
     RGB colors = {
@@ -60,6 +76,7 @@ void Rainbow::simpleGreen()
 
 void Rainbow::rainbow()
 {
+  state = 2;
   for (int i = 0; i < ledCount; i++)
   {
     controller.setColor(i, rainbowColorFor(i));
@@ -70,4 +87,15 @@ void Rainbow::rainbow()
 
 void Rainbow::rainbowWave()
 {
+  state = WAVE_STATE;
+
+  for (int i = 0; i < ledCount; i++)
+  {
+    for (int j = 0; j < ledCount; j++)
+    {
+      controller.setColor(j, rainbowColorFor((j + i) % ledCount));
+    }
+    controller.setBrightness(255);
+    show();
+  }
 }

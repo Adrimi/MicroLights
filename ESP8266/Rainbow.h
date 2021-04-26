@@ -9,6 +9,7 @@ class Rainbow
 private:
   LightController &controller;
   int ledCount;
+  int state;
 
   void show();
   int colorValueFor(int brightness, float fraction);
@@ -20,6 +21,7 @@ public:
   void simpleGreen();
   void rainbow();
   void rainbowWave();
+  void update();
 
   Rainbow(LightController &controller, int ledCount);
   RGB rainbowColorFor(int ledIndex);
