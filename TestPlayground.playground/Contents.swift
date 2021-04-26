@@ -108,7 +108,7 @@ class MyViewController : UIViewController {
         colorStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             colorStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            colorStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            colorStack.topAnchor.constraint(equalTo: view.topAnchor),
         ])
     }
 }
