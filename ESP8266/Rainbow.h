@@ -11,6 +11,8 @@ private:
   int ledCount;
 
   void show();
+  int colorValueFor(int brightness, float fraction);
+  float valueForFraction(float x, float phaseShift);
 
 public:
   // MARK: - Declaration of light effects that Rainbow offers in public API

@@ -2,6 +2,8 @@
 #include "RGB.h"
 #include <math.h>
 
+#define PI 3.14
+
 Rainbow::Rainbow(LightController &controller, int ledCount) : controller(controller), ledCount(ledCount) {}
 
 // MARK: - PRIVATE API
@@ -11,16 +13,25 @@ void Rainbow::show()
   controller.show();
 }
 
+float Rainbow::valueForFraction(float x, float phaseShift)
+{
+  return 0.5 * (1 + sin((2 * PI * x) - phaseShift));
+}
+
+int Rainbow::colorValueFor(int brightness, float fraction)
+{
+  return round((float)brightness * fraction);
+}
+
 RGB Rainbow::rainbowColorFor(int ledIndex)
 {
   float fraction = (float)ledIndex / (float)ledCount;
   float brightness = 255;
-  // float multiplier = 3;
   RGB colors;
 
-  colors.r = round(brightness * fmodf((fraction), (float)1));
-  colors.g = round(brightness * fmodf((fraction + 0.3333), (float)1));
-  colors.b = round(brightness * fmodf((fraction + 0.6667), (float)1));
+  colors.r = colorValueFor(brightness, valueForFraction(fraction, 0));
+  colors.g = colorValueFor(brightness, valueForFraction(fraction, (2 * PI) / 3));
+  colors.b = colorValueFor(brightness, valueForFraction(fraction, (4 * PI) / 3));
 
   return colors;
 }
