@@ -5,8 +5,7 @@
 #include "MessageMapper.h"
 
 // MARK: - WIFI
-#define WLAN_SSID "UPC2253338"   // Wi-Fi SSID
-#define WLAN_PASS "Tefvba3ehtCr" // Wi-Fi Password
+#include "config.h"
 WiFiClient client;
 
 // MARK: - mDNS
