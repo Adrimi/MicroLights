@@ -13,20 +13,19 @@ private:
   int updateState = 0;
 
   void show();
+  void setState(int newState);
   int colorValueFor(float brightness, float fraction);
   float sinValueFor(float x, float phaseShift);
+  RGB rainbowColorFor(int ledIndex);
 
 public:
   void update();
   void clear();
   void simpleGreen();
   void rainbow();
-  void rainbowWave();
   void waveWithOffset();
-  void setState(int newState);
 
   Rainbow(LightController &controller, int ledCount);
-  RGB rainbowColorFor(int ledIndex);
 };
 
 #endif // RAINBOW_H

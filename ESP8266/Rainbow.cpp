@@ -38,6 +38,14 @@ RGB Rainbow::rainbowColorFor(int ledIndex)
   return colors;
 }
 
+void Rainbow::setState(int newState)
+{
+  if (updateState != newState)
+  {
+    updateState = newState;
+  }
+}
+
 // MARK: - PUBLIC API
 
 void Rainbow::update()
@@ -53,14 +61,6 @@ void Rainbow::update()
       currentOffset++;
     }
     waveWithOffset();
-  }
-}
-
-void Rainbow::setState(int newState)
-{
-  if (updateState != newState)
-  {
-    updateState = newState;
   }
 }
 
@@ -106,8 +106,4 @@ void Rainbow::waveWithOffset()
   }
   controller.setBrightness(255);
   show();
-}
-
-void Rainbow::rainbowWave()
-{
 }

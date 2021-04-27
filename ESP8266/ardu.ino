@@ -20,6 +20,7 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 // MARK: - LIGHT CONTROLLER
 #include "Rainbow.h"
 #include "NeopixelLightController.h"
+#include "RainbowAnimationAdapter.h"
 #include <Adafruit_NeoPixel.h>
 
 #define PIN 4
@@ -28,21 +29,22 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_GRB + NEO_KHZ800);
 NeopixelLightController controller = NeopixelLightController(neoPixel);
 Rainbow rainbow = Rainbow(controller, LEDNUMBER);
+RainbowAnimationAdapter adapter = RainbowAnimationAdapter(&rainbow);
 
 // MARK: - MQTT Broker delegate methods
 class MLMQTTBroker : public uMQTTBroker
 {
 public:
-  virtual bool onConnect(IPAddress addr, uint16_t client_count)
+  bool onConnect(IPAddress addr, uint16_t client_count)
   {
     Serial.println(addr.toString() + " connected");
     return true;
   }
 
-  virtual void onData(String topic, const char *data, uint32_t length)
+  void onData(String topic, const char *data, uint32_t length)
   {
     Serial.println(topic + ": " + (String)data);
-    MessageMapper::mapToRainbow(data, &rainbow);
+    MessageMapper::mapToRainbow(data, &adapter);
   }
 };
 
@@ -84,20 +86,6 @@ void setupMDNS()
   hMDNSService = MDNS.addService(0, "mqtt", "tcp", MQTT_PORT);
 }
 
-unsigned long previousMillis = 0;
-unsigned long FPS = 20;
-
-void updateRainbow()
-{
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= 1000 / FPS)
-  {
-    previousMillis = currentMillis;
-    rainbow.update();
-  }
-}
-
 void setup()
 {
   Serial.begin(115200);
@@ -109,5 +97,5 @@ void setup()
 void loop()
 {
   MDNS.update();
-  updateRainbow();
+  adapter.updateAnimations(millis());
 }
