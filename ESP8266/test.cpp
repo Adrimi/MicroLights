@@ -20,10 +20,6 @@ int main()
   int ledNumber = 60;
   Stub s = Stub();
   Rainbow r = Rainbow(s, ledNumber);
-  for (int i = 0; i < ledNumber; i++)
-  {
-    RGB rainbowColors = r.rainbowColorFor(i);
-    s.setColor(i, rainbowColors);
-  }
+  r.rainbow();
   return 0;
 }

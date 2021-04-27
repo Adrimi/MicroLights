@@ -6,10 +6,7 @@
 #define PI 3.14
 #define WAVE_STATE 3
 
-Rainbow::Rainbow(LightController &controller, int ledCount) : controller(controller), ledCount(ledCount)
-{
-  state = 0;
-}
+Rainbow::Rainbow(LightController &controller, int ledCount) : controller(controller), ledCount(ledCount) {}
 
 // MARK: - PRIVATE API
 
@@ -18,14 +15,14 @@ void Rainbow::show()
   controller.show();
 }
 
-float Rainbow::valueForFraction(float x, float phaseShift)
+float Rainbow::sinValueFor(float x, float phaseShift)
 {
   return 0.5 * (1 + sin((2 * PI * x) - phaseShift));
 }
 
-int Rainbow::colorValueFor(int brightness, float fraction)
+int Rainbow::colorValueFor(float brightness, float fraction)
 {
-  return round((float)brightness * fraction);
+  return round(brightness * fraction);
 }
 
 RGB Rainbow::rainbowColorFor(int ledIndex)
@@ -34,9 +31,9 @@ RGB Rainbow::rainbowColorFor(int ledIndex)
   float brightness = 255;
   RGB colors;
 
-  colors.r = colorValueFor(brightness, valueForFraction(fraction, 0));
-  colors.g = colorValueFor(brightness, valueForFraction(fraction, (2 * PI) / 3));
-  colors.b = colorValueFor(brightness, valueForFraction(fraction, (4 * PI) / 3));
+  colors.r = colorValueFor(brightness, sinValueFor(fraction, 0));
+  colors.g = colorValueFor(brightness, sinValueFor(fraction, (2 * PI) / 3));
+  colors.b = colorValueFor(brightness, sinValueFor(fraction, (4 * PI) / 3));
 
   return colors;
 }
@@ -45,23 +42,38 @@ RGB Rainbow::rainbowColorFor(int ledIndex)
 
 void Rainbow::update()
 {
-  Serial.println((String)state);
-  if (state == WAVE_STATE)
+  if (updateState == WAVE_STATE)
   {
-    rainbowWave();
+    if (currentOffset >= ledCount - 1)
+    {
+      currentOffset = 0;
+    }
+    else
+    {
+      currentOffset++;
+    }
+    waveWithOffset();
+  }
+}
+
+void Rainbow::setState(int newState)
+{
+  if (updateState != newState)
+  {
+    updateState = newState;
   }
 }
 
 void Rainbow::clear()
 {
-  state = 0;
+  setState(0);
   controller.clear();
   show();
 }
 
 void Rainbow::simpleGreen()
 {
-  state = 1;
+  setState(1);
   for (int i = 0; i < ledCount; i++)
   {
     RGB colors = {
@@ -76,7 +88,7 @@ void Rainbow::simpleGreen()
 
 void Rainbow::rainbow()
 {
-  state = 2;
+  setState(2);
   for (int i = 0; i < ledCount; i++)
   {
     controller.setColor(i, rainbowColorFor(i));
@@ -85,17 +97,17 @@ void Rainbow::rainbow()
   show();
 }
 
+void Rainbow::waveWithOffset()
+{
+  setState(WAVE_STATE);
+  for (int j = 0; j < ledCount; j++)
+  {
+    controller.setColor(j, rainbowColorFor((j + currentOffset) % ledCount));
+  }
+  controller.setBrightness(255);
+  show();
+}
+
 void Rainbow::rainbowWave()
 {
-  state = WAVE_STATE;
-
-  for (int i = 0; i < ledCount; i++)
-  {
-    for (int j = 0; j < ledCount; j++)
-    {
-      controller.setColor(j, rainbowColorFor((j + i) % ledCount));
-    }
-    controller.setBrightness(255);
-    show();
-  }
 }

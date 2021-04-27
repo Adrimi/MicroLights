@@ -9,19 +9,21 @@ class Rainbow
 private:
   LightController &controller;
   int ledCount;
-  int state;
+  int currentOffset = 0;
+  int updateState = 0;
 
   void show();
-  int colorValueFor(int brightness, float fraction);
-  float valueForFraction(float x, float phaseShift);
+  int colorValueFor(float brightness, float fraction);
+  float sinValueFor(float x, float phaseShift);
 
 public:
-  // MARK: - Declaration of light effects that Rainbow offers in public API
+  void update();
   void clear();
   void simpleGreen();
   void rainbow();
   void rainbowWave();
-  void update();
+  void waveWithOffset();
+  void setState(int newState);
 
   Rainbow(LightController &controller, int ledCount);
   RGB rainbowColorFor(int ledIndex);

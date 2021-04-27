@@ -19,7 +19,7 @@ void NeopixelLightController::show()
 
 void NeopixelLightController::setColor(int index, RGB color)
 {
-  pixels.setPixelColor(index, color.g, color.r, color.b);
+  pixels.setPixelColor(index, color.r, color.g, color.b);
 }
 
 void NeopixelLightController::setBrightness(int level)

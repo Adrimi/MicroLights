@@ -25,7 +25,7 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 #define PIN 4
 #define LEDNUMBER 60
 
-Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_GRB + NEO_KHZ800);
 NeopixelLightController controller = NeopixelLightController(neoPixel);
 Rainbow rainbow = Rainbow(controller, LEDNUMBER);
 
@@ -42,7 +42,7 @@ public:
   virtual void onData(String topic, const char *data, uint32_t length)
   {
     Serial.println(topic + ": " + (String)data);
-    MessageMapper::mapToRainbow(data, rainbow);
+    MessageMapper::mapToRainbow(data, &rainbow);
   }
 };
 
@@ -81,7 +81,21 @@ void setupMDNS()
   }
   Serial.println("mDNS responder started");
 
-  hMDNSService = MDNS.addService(0, "mqtt", "udp", MQTT_PORT);
+  hMDNSService = MDNS.addService(0, "mqtt", "tcp", MQTT_PORT);
+}
+
+unsigned long previousMillis = 0;
+unsigned long FPS = 20;
+
+void updateRainbow()
+{
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= 1000 / FPS)
+  {
+    previousMillis = currentMillis;
+    rainbow.update();
+  }
 }
 
 void setup()
@@ -95,4 +109,5 @@ void setup()
 void loop()
 {
   MDNS.update();
+  updateRainbow();
 }

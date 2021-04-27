@@ -6,6 +6,12 @@
     "system_error": "cpp",
     "unordered_map": "cpp",
     "vector": "cpp",
-    "rgb.h": "c"
+    "rgb.h": "c",
+    "locale": "cpp",
+    "atomic": "cpp",
+    "deque": "cpp",
+    "filesystem": "cpp",
+    "ios": "cpp",
+    "*.tcc": "cpp"
   }
 }

@@ -6,7 +6,7 @@
 class MessageMapper
 {
 public:
-  static void mapToRainbow(const char *data, Rainbow rainbow)
+  static void mapToRainbow(const char *data, Rainbow *rainbow)
   {
     int config;
     if (sscanf(data, "%d$", &config) == 1)
@@ -14,19 +14,19 @@ public:
       Serial.println("Decoded value: " + (String)config);
       if (config == 0)
       {
-        rainbow.clear();
+        rainbow->clear();
       }
       else if (config == 1)
       {
-        rainbow.simpleGreen();
+        rainbow->simpleGreen();
       }
       else if (config == 2)
       {
-        rainbow.rainbow();
+        rainbow->rainbow();
       }
       else if (config == 3)
       {
-        rainbow.rainbowWave();
+        rainbow->waveWithOffset();
       }
     }
   }
