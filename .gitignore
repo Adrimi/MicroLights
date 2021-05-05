@@ -1,2 +1,6 @@
 .DS_Store
 ESP8266/config.h
+*.xcworkspacedata
+*.xcuserstate
+**/IDEWorkspaceChecks.plist
+**/xcschememanagement.plist
