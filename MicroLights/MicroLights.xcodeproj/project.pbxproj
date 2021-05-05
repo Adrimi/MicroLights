@@ -13,6 +13,7 @@
 		3A96F2EC2642BAEC00E98937 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2EB2642BAEC00E98937 /* Preview Assets.xcassets */; };
 		3A96F2F72642BAEC00E98937 /* MicroLightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2F62642BAEC00E98937 /* MicroLightsTests.swift */; };
 		3A96F3022642BAEC00E98937 /* MicroLightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F3012642BAEC00E98937 /* MicroLightsUITests.swift */; };
+		3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		3A96F2FD2642BAEC00E98937 /* MicroLightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MicroLightsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A96F3012642BAEC00E98937 /* MicroLightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsUITests.swift; sourceTree = "<group>"; };
 		3A96F3032642BAEC00E98937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */,
 				3A96F2E62642BAEB00E98937 /* ContentView.swift */,
+				3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */,
 				3A96F2E82642BAEC00E98937 /* Assets.xcassets */,
 				3A96F2ED2642BAEC00E98937 /* Info.plist */,
 				3A96F2EA2642BAEC00E98937 /* Preview Content */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */,
 				3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */,
 				3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */,
 			);

@@ -31,7 +31,9 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(store.connectableItems) { device in
-                    Text("\(device.name)")
+                    Button("\(device.name)") {
+                        print(device.name)
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
             .listStyle(InsetGroupedListStyle())
