@@ -11,7 +11,7 @@ import SwiftUI
 struct MicroLightsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(store: ContentViewStore(title: "List of items", items: []))
         }
     }
 }
