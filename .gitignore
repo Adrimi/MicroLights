@@ -4,3 +4,5 @@ ESP8266/config.h
 *.xcuserstate
 **/IDEWorkspaceChecks.plist
 **/xcschememanagement.plist
+
+Pods/

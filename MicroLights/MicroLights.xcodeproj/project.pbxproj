@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4ACE75264D5A29003FE25C /* MQTTService.swift */; };
-		3A4ACE81264D60B3003FE25C /* Moscapsule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		3A4ACE82264D60B3003FE25C /* Moscapsule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */; };
 		3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E62642BAEB00E98937 /* ContentView.swift */; };
 		3A96F2E92642BAEC00E98937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2E82642BAEC00E98937 /* Assets.xcassets */; };
@@ -17,6 +15,7 @@
 		3A96F2F72642BAEC00E98937 /* MicroLightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2F62642BAEC00E98937 /* MicroLightsTests.swift */; };
 		3A96F3022642BAEC00E98937 /* MicroLightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F3012642BAEC00E98937 /* MicroLightsUITests.swift */; };
 		3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */; };
+		878C47C870D6847AC57D0AF1 /* Pods_MicroLights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111493205A2FA17AD679610E /* Pods_MicroLights.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3A4ACE82264D60B3003FE25C /* Moscapsule.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,8 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		111493205A2FA17AD679610E /* Pods_MicroLights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MicroLights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4ACE75264D5A29003FE25C /* MQTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTService.swift; sourceTree = "<group>"; };
-		3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Moscapsule.framework; sourceTree = "<group>"; };
 		3A96F2E12642BAEB00E98937 /* MicroLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicroLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsApp.swift; sourceTree = "<group>"; };
 		3A96F2E62642BAEB00E98937 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +64,8 @@
 		3A96F3012642BAEC00E98937 /* MicroLightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsUITests.swift; sourceTree = "<group>"; };
 		3A96F3032642BAEC00E98937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkScanner.swift; sourceTree = "<group>"; };
+		58930BF8524D779A1AD81D8F /* Pods-MicroLights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicroLights.release.xcconfig"; path = "Target Support Files/Pods-MicroLights/Pods-MicroLights.release.xcconfig"; sourceTree = "<group>"; };
+		8C8BE22DD55F2B8A709CFA1B /* Pods-MicroLights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicroLights.debug.xcconfig"; path = "Target Support Files/Pods-MicroLights/Pods-MicroLights.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A4ACE81264D60B3003FE25C /* Moscapsule.framework in Frameworks */,
+				878C47C870D6847AC57D0AF1 /* Pods_MicroLights.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,17 +94,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A4ACE79264D5B51003FE25C /* Static Frameworks */ = {
+		2AE7567E9F7517B6D51E0545 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */,
+				8C8BE22DD55F2B8A709CFA1B /* Pods-MicroLights.debug.xcconfig */,
+				58930BF8524D779A1AD81D8F /* Pods-MicroLights.release.xcconfig */,
 			);
-			path = "Static Frameworks";
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		3A4ACE7D264D5B83003FE25C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				111493205A2FA17AD679610E /* Pods_MicroLights.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +120,7 @@
 				3A96F3002642BAEC00E98937 /* MicroLightsUITests */,
 				3A96F2E22642BAEB00E98937 /* Products */,
 				3A4ACE7D264D5B83003FE25C /* Frameworks */,
+				2AE7567E9F7517B6D51E0545 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,7 +137,6 @@
 		3A96F2E32642BAEB00E98937 /* MicroLights */ = {
 			isa = PBXGroup;
 			children = (
-				3A4ACE79264D5B51003FE25C /* Static Frameworks */,
 				3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */,
 				3A4ACE75264D5A29003FE25C /* MQTTService.swift */,
 				3A96F2E62642BAEB00E98937 /* ContentView.swift */,
@@ -178,10 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A96F3062642BAEC00E98937 /* Build configuration list for PBXNativeTarget "MicroLights" */;
 			buildPhases = (
+				31D95DF8787DFC95E6F6ED49 /* [CP] Check Pods Manifest.lock */,
 				3A96F2DD2642BAEB00E98937 /* Sources */,
 				3A96F2DE2642BAEB00E98937 /* Frameworks */,
 				3A96F2DF2642BAEB00E98937 /* Resources */,
 				3A4ACE7C264D5B7F003FE25C /* Embed Frameworks */,
+				A3FBECAB59C68ABF1BBD858D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,6 +300,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31D95DF8787DFC95E6F6ED49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MicroLights-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3FBECAB59C68ABF1BBD858D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MicroLights/Pods-MicroLights-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MicroLights/Pods-MicroLights-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MicroLights/Pods-MicroLights-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A96F2DD2642BAEB00E98937 /* Sources */ = {
@@ -458,6 +505,7 @@
 		};
 		3A96F3072642BAEC00E98937 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C8BE22DD55F2B8A709CFA1B /* Pods-MicroLights.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -468,6 +516,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MicroLights",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
 					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
 					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
 					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
@@ -488,6 +540,7 @@
 		};
 		3A96F3082642BAEC00E98937 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58930BF8524D779A1AD81D8F /* Pods-MicroLights.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -498,6 +551,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MicroLights",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
 					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
 					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
 					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",

@@ -7,10 +7,22 @@
 
 import Foundation
 import Moscapsule
+import Combine
+
+enum MQTTServiceState {
+  case connect(device: String)
+  case connecting
+  case connected
+  case publish(message: String, topic: String)
+  case disconnecting
+  case disconnected
+}
 
 class MQTTService {
   private let config: MQTTConfig
   private var client: MQTTClient?
+  
+  var state = PassthroughSubject<MQTTServiceState, Never>()
   
   init(config: MQTTConfig) {
     self.config = config

@@ -13,6 +13,7 @@ import Moscapsule
 struct MicroLightsApp: App {
   @State private var items: [ConnectableDevice] = []
   @State private var cancellable: Cancellable?
+  @State private var service: MQTTService?
   
   var body: some Scene {
     WindowGroup {
@@ -23,8 +24,10 @@ struct MicroLightsApp: App {
   private var contentView: some View {
     ContentView(
       store: ContentViewStore(
-        title: "List of items",
-        items: items
+        title: "Micro Lights",
+        items: items,
+        sendSampleMessage: sendSampleMessage,
+        clearEffect: clearEffect
       )
     )
     .onAppear(perform: scanLocalNetwork)
@@ -41,10 +44,20 @@ struct MicroLightsApp: App {
       }
   }
   
+  private func sendSampleMessage() {
+    service?.publish(message: "3:3$", topic: "esp/config")
+  }
+  
+  private func clearEffect() {
+    service?.publish(message: "0:0$", topic: "esp/config")
+    service?.disconnect()
+    service = nil
+  }
+  
   private func connectTo(_ device: String) {
     let config = MQTTConfig(clientId: "iOS", host: device, port: 1883, keepAlive: 60)
-    let service = MQTTService(config: config)
-    service.connect()
+    service = MQTTService(config: config)
+    service?.connect()
   }
   
   private func makeLocalNetworkScanner() -> AnyPublisher<[String], Never> {
