@@ -9,50 +9,50 @@ import SwiftUI
 import Combine
 
 struct ConnectableDevice: Identifiable {
-    let id: UUID
-    let name: String
+  let id: UUID
+  let name: String
+  let selected: () -> Void
 }
 
 class ContentViewStore: ObservableObject {
-    @Published var connectableItems: [ConnectableDevice]
-    let title: String
-    
-    init(title: String, items: [ConnectableDevice]) {
-        self.connectableItems = items
-        self.title = title
-    }
+  @Published var connectableItems: [ConnectableDevice]
+  let title: String
+  
+  init(title: String, items: [ConnectableDevice]) {
+    self.connectableItems = items
+    self.title = title
+  }
 }
 
 struct ContentView: View {
-    
-    let store: ContentViewStore
-    
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(store.connectableItems) { device in
-                    Button("\(device.name)") {
-                        print(device.name)
-                    }.buttonStyle(PlainButtonStyle())
-                }
-            }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle(store.title)
+  
+  let store: ContentViewStore
+  
+  var body: some View {
+    NavigationView {
+      List {
+        ForEach(store.connectableItems) { device in
+          Button("\(device.name)", action: device.selected)
+            .buttonStyle(PlainButtonStyle())
         }
-        
+      }
+      .listStyle(InsetGroupedListStyle())
+      .navigationTitle(store.title)
     }
+    
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(
-            store: ContentViewStore(
-                title: "List of devices",
-                items: [
-                    ConnectableDevice(id: UUID(), name: "esp8266"),
-                    ConnectableDevice(id: UUID(), name: "esp8266"),
-                ]
-            )
-        )
-    }
+  static var previews: some View {
+    ContentView(
+      store: ContentViewStore(
+        title: "List of devices",
+        items: [
+          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}),
+          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}),
+        ]
+      )
+    )
+  }
 }

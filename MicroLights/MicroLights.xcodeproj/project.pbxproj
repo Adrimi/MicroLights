@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4ACE75264D5A29003FE25C /* MQTTService.swift */; };
+		3A4ACE81264D60B3003FE25C /* Moscapsule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		3A4ACE82264D60B3003FE25C /* Moscapsule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */; };
 		3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E62642BAEB00E98937 /* ContentView.swift */; };
 		3A96F2E92642BAEC00E98937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2E82642BAEC00E98937 /* Assets.xcassets */; };
@@ -33,7 +36,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3A4ACE7C264D5B7F003FE25C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3A4ACE82264D60B3003FE25C /* Moscapsule.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3A4ACE75264D5A29003FE25C /* MQTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTService.swift; sourceTree = "<group>"; };
+		3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Moscapsule.framework; sourceTree = "<group>"; };
 		3A96F2E12642BAEB00E98937 /* MicroLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicroLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsApp.swift; sourceTree = "<group>"; };
 		3A96F2E62642BAEB00E98937 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4ACE81264D60B3003FE25C /* Moscapsule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +94,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A4ACE79264D5B51003FE25C /* Static Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A4ACE7F264D60A6003FE25C /* Moscapsule.framework */,
+			);
+			path = "Static Frameworks";
+			sourceTree = "<group>";
+		};
+		3A4ACE7D264D5B83003FE25C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A96F2D82642BAEB00E98937 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +116,7 @@
 				3A96F2F52642BAEC00E98937 /* MicroLightsTests */,
 				3A96F3002642BAEC00E98937 /* MicroLightsUITests */,
 				3A96F2E22642BAEB00E98937 /* Products */,
+				3A4ACE7D264D5B83003FE25C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,7 +133,9 @@
 		3A96F2E32642BAEB00E98937 /* MicroLights */ = {
 			isa = PBXGroup;
 			children = (
+				3A4ACE79264D5B51003FE25C /* Static Frameworks */,
 				3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */,
+				3A4ACE75264D5A29003FE25C /* MQTTService.swift */,
 				3A96F2E62642BAEB00E98937 /* ContentView.swift */,
 				3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */,
 				3A96F2E82642BAEC00E98937 /* Assets.xcassets */,
@@ -143,6 +181,7 @@
 				3A96F2DD2642BAEB00E98937 /* Sources */,
 				3A96F2DE2642BAEB00E98937 /* Frameworks */,
 				3A96F2DF2642BAEB00E98937 /* Resources */,
+				3A4ACE7C264D5B7F003FE25C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +303,7 @@
 			files = (
 				3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */,
 				3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */,
+				3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */,
 				3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +465,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MicroLights/Preview Content\"";
 				DEVELOPMENT_TEAM = UHULAJL778;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MicroLights",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+				);
 				INFOPLIST_FILE = MicroLights/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,6 +495,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MicroLights/Preview Content\"";
 				DEVELOPMENT_TEAM = UHULAJL778;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MicroLights",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+				);
 				INFOPLIST_FILE = MicroLights/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
