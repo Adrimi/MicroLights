@@ -8,10 +8,22 @@
 import SwiftUI
 import Combine
 
-struct ConnectableDevice: Identifiable {
+class ConnectableDevice: ObservableObject, Identifiable {
   let id: UUID
   let name: String
   let selected: () -> Void
+  @Published var state: MQTTServiceState
+  private var cancellable: AnyCancellable?
+  
+  init(id: UUID, name: String, selected: @escaping () -> Void, state: AnyPublisher<MQTTServiceState, Never>) {
+    self.id = id
+    self.name = name
+    self.selected = selected
+    self.state = .disconnected
+    cancellable = state.sink { [weak self] state in
+      self?.state = state
+    }
+  }
 }
 
 class ContentViewStore: ObservableObject {
@@ -20,13 +32,19 @@ class ContentViewStore: ObservableObject {
   let sendSampleMessage: () -> Void
   let clearEffect: () -> Void
   
-  init(title: String, items: [ConnectableDevice], sendSampleMessage: @escaping () -> Void, clearEffect: @escaping () -> Void) {
+  init(
+    title: String,
+    items: [ConnectableDevice],
+    sendSampleMessage: @escaping () -> Void,
+    clearEffect: @escaping () -> Void
+  ) {
     self.connectableItems = items
     self.title = title
     self.sendSampleMessage = sendSampleMessage
     self.clearEffect = clearEffect
   }
 }
+
 
 struct ContentView: View {
   
@@ -37,8 +55,14 @@ struct ContentView: View {
       List {
         Section(header: Text("Devices")) {
           ForEach(store.connectableItems) { device in
-            Button("\(device.name)", action: device.selected)
-              .buttonStyle(PlainButtonStyle())
+            HStack {
+              Button("\(device.name)", action: device.selected)
+                .buttonStyle(PlainButtonStyle())
+              
+              Spacer()
+              
+              mapState(device.state)
+            }
           }
         }
         
@@ -53,6 +77,27 @@ struct ContentView: View {
       .navigationTitle(store.title)
     }
   }
+  
+  @ViewBuilder
+  func mapState(_ state: MQTTServiceState) -> some View {
+    switch state {
+      case .connecting:
+        ActivityIndicatorView(isAnimating: .constant(true), style: .medium)
+        
+      case .connected:
+        RoundedRectangle(cornerRadius: 11)
+          .frame(width: 22, height: 22)
+          .foregroundColor(.green)
+        
+      case .disconnecting:
+        RoundedRectangle(cornerRadius: 11)
+          .frame(width: 22, height: 22)
+          .foregroundColor(.orange)
+        
+      default:
+        EmptyView()
+    }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -61,8 +106,10 @@ struct ContentView_Previews: PreviewProvider {
       store: ContentViewStore(
         title: "Micro Lights",
         items: [
-          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}),
-          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}),
+          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.connected).eraseToAnyPublisher()),
+          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.connecting).eraseToAnyPublisher()),
+          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.disconnecting).eraseToAnyPublisher()),
+          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.disconnected).eraseToAnyPublisher()),
         ], sendSampleMessage: {}, clearEffect: {}
       )
     )

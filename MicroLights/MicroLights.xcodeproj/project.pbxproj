@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4ACE75264D5A29003FE25C /* MQTTService.swift */; };
+		3A4EF90A265D605000D204D9 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */; };
 		3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */; };
 		3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E62642BAEB00E98937 /* ContentView.swift */; };
 		3A96F2E92642BAEC00E98937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2E82642BAEC00E98937 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		111493205A2FA17AD679610E /* Pods_MicroLights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MicroLights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4ACE75264D5A29003FE25C /* MQTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTService.swift; sourceTree = "<group>"; };
+		3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3A96F2E12642BAEB00E98937 /* MicroLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicroLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsApp.swift; sourceTree = "<group>"; };
 		3A96F2E62642BAEB00E98937 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 				8C8BE22DD55F2B8A709CFA1B /* Pods-MicroLights.debug.xcconfig */,
 				58930BF8524D779A1AD81D8F /* Pods-MicroLights.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,6 +141,7 @@
 				3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */,
 				3A4ACE75264D5A29003FE25C /* MQTTService.swift */,
 				3A96F2E62642BAEB00E98937 /* ContentView.swift */,
+				3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */,
 				3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */,
 				3A96F2E82642BAEC00E98937 /* Assets.xcassets */,
 				3A96F2ED2642BAEC00E98937 /* Info.plist */,
@@ -349,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */,
+				3A4EF90A265D605000D204D9 /* ActivityIndicatorView.swift in Sources */,
 				3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */,
 				3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */,
 				3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */,

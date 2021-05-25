@@ -11,9 +11,11 @@ import Moscapsule
 
 @main
 struct MicroLightsApp: App {
+  
   @State private var items: [ConnectableDevice] = []
   @State private var cancellable: Cancellable?
-  @State private var service: MQTTService?
+  @State private var service: MQTTService = MQTTService()
+  @State private var cencellables = Set<AnyCancellable>()
   
   var body: some Scene {
     WindowGroup {
@@ -38,26 +40,20 @@ struct MicroLightsApp: App {
       .sink { devices in
         self.items = devices.map { device in
           ConnectableDevice(id: UUID(), name: device, selected: {
-            connectTo(device)
-          })
+            let config = MQTTConfig(clientId: "iOS", host: device, port: 1883, keepAlive: 60)
+            service.connect(with: config)
+          }, state: service.state.eraseToAnyPublisher())
         }
       }
   }
   
   private func sendSampleMessage() {
-    service?.publish(message: "3:3$", topic: "esp/config")
+    service.publish(message: "3:3$", topic: "esp/config")
   }
   
   private func clearEffect() {
-    service?.publish(message: "0:0$", topic: "esp/config")
-    service?.disconnect()
-    service = nil
-  }
-  
-  private func connectTo(_ device: String) {
-    let config = MQTTConfig(clientId: "iOS", host: device, port: 1883, keepAlive: 60)
-    service = MQTTService(config: config)
-    service?.connect()
+    service.publish(message: "0:0$", topic: "esp/config")
+    service.disconnect()
   }
   
   private func makeLocalNetworkScanner() -> AnyPublisher<[String], Never> {

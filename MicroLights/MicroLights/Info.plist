@@ -46,5 +46,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Network usage is required for macOS/iOS communication</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_mqtt._tcp</string>
+	</array>
 </dict>
 </plist>

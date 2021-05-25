@@ -10,26 +10,27 @@ import Moscapsule
 import Combine
 
 enum MQTTServiceState {
-  case connect(device: String)
   case connecting
   case connected
-  case publish(message: String, topic: String)
   case disconnecting
   case disconnected
 }
 
 class MQTTService {
-  private let config: MQTTConfig
   private var client: MQTTClient?
   
   var state = PassthroughSubject<MQTTServiceState, Never>()
   
-  init(config: MQTTConfig) {
-    self.config = config
-  }
-  
-  func connect() {
+  func connect(with cfg: MQTTConfig) {
+    let config = cfg
+    config.onConnectCallback = { [weak self] _ in
+      self?.state.send(.connected)
+    }
+    config.onDisconnectCallback = { [weak self] _ in
+      self?.state.send(.disconnected)
+    }
     client = MQTT.newConnection(config)
+    state.send(.connecting)
   }
   
   func publish(message: String, topic: String) {
@@ -37,6 +38,7 @@ class MQTTService {
   }
   
   func disconnect() {
+    state.send(.disconnecting)
     client?.disconnect()
     client = nil
   }
