@@ -100,22 +100,22 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       List {
-        Section(header: Text("Devices")) {
-          ForEach(store.connectableItems) { device in
-            ConnectableDeviceView(store: device)
-          }
-        }
-        
         Section(header: Text("Actions")) {
           Button(action: store.sendSampleMessage) {
-            Text("Send sample message")
+            Text("Ranibow effect")
           }
           .buttonStyle(PlainButtonStyle())
           
           Button(action: store.clearEffect) {
-            Text("Clear effect and disconnect")
+            Text("Turn off")
           }
           .buttonStyle(PlainButtonStyle())
+        }
+        
+        Section(header: Text("Devices")) {
+          ForEach(store.connectableItems) { device in
+            ConnectableDeviceView(store: device)
+          }
         }
       }
       .listStyle(InsetGroupedListStyle())
