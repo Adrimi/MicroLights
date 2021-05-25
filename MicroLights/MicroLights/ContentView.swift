@@ -59,8 +59,10 @@ struct ConnectableDeviceView: View {
   
   var body: some View {
     HStack {
-      Button("\(store.name)", action: store.selected)
-        .buttonStyle(PlainButtonStyle())
+      Button(action: store.selected) {
+        Text("\(store.name)")
+      }
+      .buttonStyle(PlainButtonStyle())
       
       Spacer()
       
@@ -105,10 +107,15 @@ struct ContentView: View {
         }
         
         Section(header: Text("Actions")) {
-          Button("Send sample message", action: store.sendSampleMessage)
-            .buttonStyle(PlainButtonStyle())
-          Button("Clear effect and disconnect", action: store.clearEffect)
-            .buttonStyle(PlainButtonStyle())
+          Button(action: store.sendSampleMessage) {
+            Text("Send sample message")
+          }
+          .buttonStyle(PlainButtonStyle())
+          
+          Button(action: store.clearEffect) {
+            Text("Clear effect and disconnect")
+          }
+          .buttonStyle(PlainButtonStyle())
         }
       }
       .listStyle(InsetGroupedListStyle())
