@@ -13,9 +13,7 @@ import Moscapsule
 struct MicroLightsApp: App {
   
   @State private var items: [ConnectableDevice] = []
-  @State private var cancellable: Cancellable?
-  @State private var service: MQTTService = MQTTService()
-  @State private var cencellables = Set<AnyCancellable>()
+  @State private var networkScannerTask: Cancellable?
   
   var body: some Scene {
     WindowGroup {
@@ -28,32 +26,36 @@ struct MicroLightsApp: App {
       store: ContentViewStore(
         title: "Micro Lights",
         items: items,
-        sendSampleMessage: sendSampleMessage,
-        clearEffect: clearEffect
+        sendSampleMessage: { items.filter { $0.state == .connected }.forEach { $0.sampleMessage() } },
+        clearEffect: { items.filter { $0.state == .connected }.forEach { $0.clear() } }
       )
     )
     .onAppear(perform: scanLocalNetwork)
   }
   
   private func scanLocalNetwork() {
-    cancellable = makeLocalNetworkScanner()
+    networkScannerTask = makeLocalNetworkScanner()
+      .removeDuplicates()
       .sink { devices in
         self.items = devices.map { device in
-          ConnectableDevice(id: UUID(), name: device, selected: {
-            let config = MQTTConfig(clientId: "iOS", host: device, port: 1883, keepAlive: 60)
-            service.connect(with: config)
-          }, state: service.state.eraseToAnyPublisher())
+          let service = MQTTService()
+           
+          return ConnectableDevice(
+            id: UUID(),
+            name: device,
+            state: service.state.eraseToAnyPublisher(),
+            selected: {
+              if service.state.value == .disconnected {
+                let config = MQTTConfig(clientId: "iOS", host: device, port: 1883, keepAlive: 60)
+                service.connect(with: config)
+              } else if service.state.value == .connected {
+                service.disconnect()
+              }
+            },
+            sampleMessage: { service.sendSampleMessage() },
+            clear: { service.clearEffect() })
         }
       }
-  }
-  
-  private func sendSampleMessage() {
-    service.publish(message: "3:3$", topic: "esp/config")
-  }
-  
-  private func clearEffect() {
-    service.publish(message: "0:0$", topic: "esp/config")
-    service.disconnect()
   }
   
   private func makeLocalNetworkScanner() -> AnyPublisher<[String], Never> {

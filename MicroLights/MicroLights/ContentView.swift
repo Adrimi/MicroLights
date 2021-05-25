@@ -11,20 +11,28 @@ import Combine
 class ConnectableDevice: ObservableObject, Identifiable {
   let id: UUID
   let name: String
-  let selected: () -> Void
   @Published var state: MQTTServiceState
-  private var cancellable: AnyCancellable?
+  var cancellable: AnyCancellable?
+  let selected: () -> Void
+  let sampleMessage: () -> Void
+  let clear: () -> Void
   
-  init(id: UUID, name: String, selected: @escaping () -> Void, state: AnyPublisher<MQTTServiceState, Never>) {
+  init(id: UUID, name: String, state: AnyPublisher<MQTTServiceState, Never>, selected: @escaping () -> Void, sampleMessage: @escaping () -> Void, clear: @escaping () -> Void) {
     self.id = id
     self.name = name
-    self.selected = selected
     self.state = .disconnected
-    cancellable = state.sink { [weak self] state in
+    self.selected = selected
+    self.sampleMessage = sampleMessage
+    self.clear = clear
+    self.cancellable = state
+      .receive(on: RunLoop.main)
+      .sink(receiveValue: { [weak self] state in
       self?.state = state
-    }
+    })
   }
 }
+
+
 
 class ContentViewStore: ObservableObject {
   @Published var connectableItems: [ConnectableDevice]
@@ -46,35 +54,17 @@ class ContentViewStore: ObservableObject {
 }
 
 
-struct ContentView: View {
-  
-  let store: ContentViewStore
+struct ConnectableDeviceView: View {
+  @ObservedObject var store: ConnectableDevice
   
   var body: some View {
-    NavigationView {
-      List {
-        Section(header: Text("Devices")) {
-          ForEach(store.connectableItems) { device in
-            HStack {
-              Button("\(device.name)", action: device.selected)
-                .buttonStyle(PlainButtonStyle())
-              
-              Spacer()
-              
-              mapState(device.state)
-            }
-          }
-        }
-        
-        Section(header: Text("Actions")) {
-          Button("Send sample message", action: store.sendSampleMessage)
-            .buttonStyle(PlainButtonStyle())
-          Button("Clear effect and disconnect", action: store.clearEffect)
-            .buttonStyle(PlainButtonStyle())
-        }
-      }
-      .listStyle(InsetGroupedListStyle())
-      .navigationTitle(store.title)
+    HStack {
+      Button("\(store.name)", action: store.selected)
+        .buttonStyle(PlainButtonStyle())
+      
+      Spacer()
+      
+      mapState(store.state)
     }
   }
   
@@ -98,6 +88,33 @@ struct ContentView: View {
         EmptyView()
     }
   }
+
+}
+
+struct ContentView: View {
+  
+  @ObservedObject var store: ContentViewStore
+  
+  var body: some View {
+    NavigationView {
+      List {
+        Section(header: Text("Devices")) {
+          ForEach(store.connectableItems) { device in
+            ConnectableDeviceView(store: device)
+          }
+        }
+        
+        Section(header: Text("Actions")) {
+          Button("Send sample message", action: store.sendSampleMessage)
+            .buttonStyle(PlainButtonStyle())
+          Button("Clear effect and disconnect", action: store.clearEffect)
+            .buttonStyle(PlainButtonStyle())
+        }
+      }
+      .listStyle(InsetGroupedListStyle())
+      .navigationTitle(store.title)
+    }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -105,12 +122,7 @@ struct ContentView_Previews: PreviewProvider {
     ContentView(
       store: ContentViewStore(
         title: "Micro Lights",
-        items: [
-          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.connected).eraseToAnyPublisher()),
-          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.connecting).eraseToAnyPublisher()),
-          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.disconnecting).eraseToAnyPublisher()),
-          ConnectableDevice(id: UUID(), name: "esp8266", selected: {}, state: Just(.disconnected).eraseToAnyPublisher()),
-        ], sendSampleMessage: {}, clearEffect: {}
+        items: [], sendSampleMessage: {}, clearEffect: {}
       )
     )
   }

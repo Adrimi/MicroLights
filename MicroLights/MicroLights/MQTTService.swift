@@ -18,8 +18,7 @@ enum MQTTServiceState {
 
 class MQTTService {
   private var client: MQTTClient?
-  
-  var state = PassthroughSubject<MQTTServiceState, Never>()
+  var state = CurrentValueSubject<MQTTServiceState, Never>(.disconnected)
   
   func connect(with cfg: MQTTConfig) {
     let config = cfg
@@ -29,8 +28,9 @@ class MQTTService {
     config.onDisconnectCallback = { [weak self] _ in
       self?.state.send(.disconnected)
     }
-    client = MQTT.newConnection(config)
+    
     state.send(.connecting)
+    client = MQTT.newConnection(config)
   }
   
   func publish(message: String, topic: String) {
@@ -41,5 +41,13 @@ class MQTTService {
     state.send(.disconnecting)
     client?.disconnect()
     client = nil
+  }
+  
+  func sendSampleMessage() {
+    publish(message: "3:3$", topic: "esp/config")
+  }
+  
+  func clearEffect() {
+    publish(message: "0:0$", topic: "esp/config")
   }
 }
