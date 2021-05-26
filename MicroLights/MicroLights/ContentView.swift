@@ -14,16 +14,12 @@ class ConnectableDevice: ObservableObject, Identifiable {
   @Published var state: MQTTServiceState
   var cancellable: AnyCancellable?
   let selected: () -> Void
-  let rainbowEffect: () -> Void
-  let turnOff: () -> Void
   
-  init(id: UUID, name: String, state: AnyPublisher<MQTTServiceState, Never>, selected: @escaping () -> Void, rainbowEffect: @escaping () -> Void, turnOff: @escaping () -> Void) {
+  init(id: UUID, name: String, state: AnyPublisher<MQTTServiceState, Never>, selected: @escaping () -> Void) {
     self.id = id
     self.name = name
     self.state = .disconnected
     self.selected = selected
-    self.rainbowEffect = rainbowEffect
-    self.turnOff = turnOff
     self.cancellable = state
       .receive(on: RunLoop.main)
       .sink(receiveValue: { [weak self] state in
