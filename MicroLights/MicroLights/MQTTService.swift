@@ -33,7 +33,7 @@ class MQTTService {
     client = MQTT.newConnection(config)
   }
   
-  func publish(message: String, topic: String) {
+  func publish(message: String, topic: String = "esp/config") {
     client?.publish(string: message, topic: topic, qos: 2, retain: false)
   }
   
@@ -43,11 +43,21 @@ class MQTTService {
     client = nil
   }
   
-  func sendSampleMessage() {
-    publish(message: "3:3$", topic: "esp/config")
+  func clearEffect() {
+    publish(message: "0:0$")
   }
   
-  func clearEffect() {
-    publish(message: "0:0$", topic: "esp/config")
+  func simpleGreen() {
+    publish(message: "1:0$")
   }
+  
+  func staticRainbow() {
+    publish(message: "2:0$")
+  }
+  
+  func rainbowEffect() {
+    publish(message: "3:3$")
+  }
+  
+  
 }

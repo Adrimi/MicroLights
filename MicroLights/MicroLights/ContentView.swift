@@ -14,16 +14,16 @@ class ConnectableDevice: ObservableObject, Identifiable {
   @Published var state: MQTTServiceState
   var cancellable: AnyCancellable?
   let selected: () -> Void
-  let sampleMessage: () -> Void
-  let clear: () -> Void
+  let rainbowEffect: () -> Void
+  let turnOff: () -> Void
   
-  init(id: UUID, name: String, state: AnyPublisher<MQTTServiceState, Never>, selected: @escaping () -> Void, sampleMessage: @escaping () -> Void, clear: @escaping () -> Void) {
+  init(id: UUID, name: String, state: AnyPublisher<MQTTServiceState, Never>, selected: @escaping () -> Void, rainbowEffect: @escaping () -> Void, turnOff: @escaping () -> Void) {
     self.id = id
     self.name = name
     self.state = .disconnected
     self.selected = selected
-    self.sampleMessage = sampleMessage
-    self.clear = clear
+    self.rainbowEffect = rainbowEffect
+    self.turnOff = turnOff
     self.cancellable = state
       .receive(on: RunLoop.main)
       .sink(receiveValue: { [weak self] state in
@@ -32,24 +32,33 @@ class ConnectableDevice: ObservableObject, Identifiable {
   }
 }
 
-
+struct Feature: Hashable {
+  static func == (lhs: Feature, rhs: Feature) -> Bool {
+    lhs.id == rhs.id
+  }
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
+  
+  let id: UUID = UUID()
+  let name: String
+  let action: () -> Void
+}
 
 class ContentViewStore: ObservableObject {
-  @Published var connectableItems: [ConnectableDevice]
   let title: String
-  let sendSampleMessage: () -> Void
-  let clearEffect: () -> Void
+  @Published var connectableItems: [ConnectableDevice]
+  let features: [Feature]
   
   init(
     title: String,
     items: [ConnectableDevice],
-    sendSampleMessage: @escaping () -> Void,
-    clearEffect: @escaping () -> Void
+    features: [Feature]
   ) {
     self.connectableItems = items
     self.title = title
-    self.sendSampleMessage = sendSampleMessage
-    self.clearEffect = clearEffect
+    self.features = features
   }
 }
 
@@ -101,15 +110,12 @@ struct ContentView: View {
     NavigationView {
       List {
         Section(header: Text("Actions")) {
-          Button(action: store.sendSampleMessage) {
-            Text("Ranibow effect")
+          ForEach(store.features, id: \.self) { f in
+            Button(action: f.action) {
+              Text(f.name)
+            }
+            .buttonStyle(PlainButtonStyle())
           }
-          .buttonStyle(PlainButtonStyle())
-          
-          Button(action: store.clearEffect) {
-            Text("Turn off")
-          }
-          .buttonStyle(PlainButtonStyle())
         }
         
         Section(header: Text("Devices")) {
@@ -129,7 +135,8 @@ struct ContentView_Previews: PreviewProvider {
     ContentView(
       store: ContentViewStore(
         title: "Micro Lights",
-        items: [], sendSampleMessage: {}, clearEffect: {}
+        items: [],
+        features: []
       )
     )
   }
