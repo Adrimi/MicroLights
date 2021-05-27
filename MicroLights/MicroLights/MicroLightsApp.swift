@@ -23,7 +23,7 @@ struct MicroLightsApp: App {
     .onChange(of: scenePhase) { newScenePhase in
       switch newScenePhase {
         case .background:
-          items.execute {
+          items.map(\.service).forEach {
             $0.disconnect()
           }
           
@@ -33,7 +33,7 @@ struct MicroLightsApp: App {
   }
   
   private var contentView: some View {
-    ContentView(
+    MainView(
       store: ContentViewStore(
         title: "Micro Lights",
         items: items.map(\.device),
@@ -59,6 +59,7 @@ struct MicroLightsApp: App {
   private func scanLocalNetwork() {
     networkScannerTask = makeLocalNetworkScanner()
       .removeDuplicates()
+      .receive(on: RunLoop.main)
       .sink { devices in
         self.items = devices.map { device in
           let service = MQTTService()

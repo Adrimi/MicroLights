@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4ACE75264D5A29003FE25C /* MQTTService.swift */; };
 		3A4EF90A265D605000D204D9 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */; };
+		3A614679265F7BFE00578EC0 /* ConnectableDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A614678265F7BFE00578EC0 /* ConnectableDevice.swift */; };
+		3A61467B265F7CF600578EC0 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A61467A265F7CF600578EC0 /* Feature.swift */; };
+		3A61467D265F7D0700578EC0 /* ContentViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A61467C265F7D0700578EC0 /* ContentViewStore.swift */; };
+		3A61467F265F7D1B00578EC0 /* ConnectableDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A61467E265F7D1B00578EC0 /* ConnectableDeviceView.swift */; };
 		3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */; };
-		3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E62642BAEB00E98937 /* ContentView.swift */; };
+		3A96F2E72642BAEB00E98937 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E62642BAEB00E98937 /* MainView.swift */; };
 		3A96F2E92642BAEC00E98937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2E82642BAEC00E98937 /* Assets.xcassets */; };
 		3A96F2EC2642BAEC00E98937 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2EB2642BAEC00E98937 /* Preview Assets.xcassets */; };
 		3A96F2F72642BAEC00E98937 /* MicroLightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2F62642BAEC00E98937 /* MicroLightsTests.swift */; };
@@ -53,9 +57,13 @@
 		111493205A2FA17AD679610E /* Pods_MicroLights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MicroLights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4ACE75264D5A29003FE25C /* MQTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTService.swift; sourceTree = "<group>"; };
 		3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		3A614678265F7BFE00578EC0 /* ConnectableDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectableDevice.swift; sourceTree = "<group>"; };
+		3A61467A265F7CF600578EC0 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		3A61467C265F7D0700578EC0 /* ContentViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewStore.swift; sourceTree = "<group>"; };
+		3A61467E265F7D1B00578EC0 /* ConnectableDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectableDeviceView.swift; sourceTree = "<group>"; };
 		3A96F2E12642BAEB00E98937 /* MicroLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicroLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsApp.swift; sourceTree = "<group>"; };
-		3A96F2E62642BAEB00E98937 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3A96F2E62642BAEB00E98937 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3A96F2E82642BAEC00E98937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A96F2EB2642BAEC00E98937 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3A96F2ED2642BAEC00E98937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +121,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3A614680265F7EB300578EC0 /* Main UI */ = {
+			isa = PBXGroup;
+			children = (
+				3A61467E265F7D1B00578EC0 /* ConnectableDeviceView.swift */,
+				3A96F2E62642BAEB00E98937 /* MainView.swift */,
+			);
+			path = "Main UI";
+			sourceTree = "<group>";
+		};
+		3A614681265F7EBA00578EC0 /* Main Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3A61467C265F7D0700578EC0 /* ContentViewStore.swift */,
+				3A61467A265F7CF600578EC0 /* Feature.swift */,
+				3A614678265F7BFE00578EC0 /* ConnectableDevice.swift */,
+			);
+			path = "Main Presentation";
+			sourceTree = "<group>";
+		};
+		3A614682265F7EC600578EC0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */,
+				3A4ACE75264D5A29003FE25C /* MQTTService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3A614683265F7ED000578EC0 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
 		3A96F2D82642BAEB00E98937 = {
 			isa = PBXGroup;
 			children = (
@@ -138,14 +182,14 @@
 		3A96F2E32642BAEB00E98937 /* MicroLights */ = {
 			isa = PBXGroup;
 			children = (
-				3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */,
-				3A4ACE75264D5A29003FE25C /* MQTTService.swift */,
-				3A96F2E62642BAEB00E98937 /* ContentView.swift */,
-				3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */,
-				3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */,
-				3A96F2E82642BAEC00E98937 /* Assets.xcassets */,
 				3A96F2ED2642BAEC00E98937 /* Info.plist */,
+				3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */,
+				3A96F2E82642BAEC00E98937 /* Assets.xcassets */,
+				3A614681265F7EBA00578EC0 /* Main Presentation */,
+				3A614680265F7EB300578EC0 /* Main UI */,
 				3A96F2EA2642BAEC00E98937 /* Preview Content */,
+				3A614682265F7EC600578EC0 /* Services */,
+				3A614683265F7ED000578EC0 /* Shared UI */,
 			);
 			path = MicroLights;
 			sourceTree = "<group>";
@@ -351,9 +395,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */,
+				3A61467B265F7CF600578EC0 /* Feature.swift in Sources */,
 				3A4EF90A265D605000D204D9 /* ActivityIndicatorView.swift in Sources */,
-				3A96F2E72642BAEB00E98937 /* ContentView.swift in Sources */,
+				3A96F2E72642BAEB00E98937 /* MainView.swift in Sources */,
+				3A61467D265F7D0700578EC0 /* ContentViewStore.swift in Sources */,
 				3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */,
+				3A614679265F7BFE00578EC0 /* ConnectableDevice.swift in Sources */,
+				3A61467F265F7D1B00578EC0 /* ConnectableDeviceView.swift in Sources */,
 				3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

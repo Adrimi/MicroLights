@@ -40,7 +40,6 @@ class MQTTService {
   func disconnect() {
     state.send(.disconnecting)
     client?.disconnect()
-    client = nil
   }
   
   func clearEffect() {
