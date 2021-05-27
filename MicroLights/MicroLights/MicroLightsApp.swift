@@ -14,10 +14,21 @@ struct MicroLightsApp: App {
   
   @State private var items: [(service: MQTTService, device:  ConnectableDevice)] = []
   @State private var networkScannerTask: Cancellable?
+  @Environment(\.scenePhase) var scenePhase
   
   var body: some Scene {
     WindowGroup {
       contentView
+    }
+    .onChange(of: scenePhase) { newScenePhase in
+      switch newScenePhase {
+        case .background:
+          items.execute {
+            $0.disconnect()
+          }
+          
+        default: break
+      }
     }
   }
   
