@@ -1,4 +1,4 @@
-#include "Rainbow.h"
+#include "RainbowAnimationAdapter.h"
 
 #ifndef MESSAGEMAPPER_H
 #define MESSAGEMAPPER_H
@@ -6,27 +6,29 @@
 class MessageMapper
 {
 public:
-  static void mapToRainbow(const char *data, Rainbow rainbow)
+  static void mapToRainbow(const char *data, RainbowAnimationAdapter *adapter)
   {
     int config;
-    if (sscanf(data, "%d$", &config) == 1)
+    unsigned int setting;
+    if (sscanf(data, "%d:%d$", &config, &setting) == 2)
     {
       Serial.println("Decoded value: " + (String)config);
       if (config == 0)
       {
-        rainbow.clear();
+        adapter->clear();
       }
       else if (config == 1)
       {
-        rainbow.simpleGreen();
+        adapter->simpleGreen();
       }
       else if (config == 2)
       {
-        rainbow.rainbow();
+        adapter->rainbow();
       }
       else if (config == 3)
       {
-        rainbow.rainbowWave();
+        adapter->setFPS(setting);
+        adapter->waveWithOffset();
       }
     }
   }
