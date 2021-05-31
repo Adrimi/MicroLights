@@ -5,8 +5,7 @@
 #include "MessageMapper.h"
 
 // MARK: - WIFI
-#define WLAN_SSID "UPC2253338"   // Wi-Fi SSID
-#define WLAN_PASS "Tefvba3ehtCr" // Wi-Fi Password
+#include "config.h"
 WiFiClient client;
 
 // MARK: - mDNS
@@ -20,29 +19,31 @@ MDNSResponder::hMDNSService hMDNSService = 0;
 // MARK: - LIGHT CONTROLLER
 #include "Rainbow.h"
 #include "NeopixelLightController.h"
+#include "RainbowAnimationAdapter.h"
 #include <Adafruit_NeoPixel.h>
 
 #define PIN 4
 #define LEDNUMBER 60
 
-Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel neoPixel = Adafruit_NeoPixel(LEDNUMBER, PIN, NEO_GRB + NEO_KHZ800);
 NeopixelLightController controller = NeopixelLightController(neoPixel);
 Rainbow rainbow = Rainbow(controller, LEDNUMBER);
+RainbowAnimationAdapter adapter = RainbowAnimationAdapter(&rainbow);
 
 // MARK: - MQTT Broker delegate methods
 class MLMQTTBroker : public uMQTTBroker
 {
 public:
-  virtual bool onConnect(IPAddress addr, uint16_t client_count)
+  bool onConnect(IPAddress addr, uint16_t client_count)
   {
     Serial.println(addr.toString() + " connected");
     return true;
   }
 
-  virtual void onData(String topic, const char *data, uint32_t length)
+  void onData(String topic, const char *data, uint32_t length)
   {
     Serial.println(topic + ": " + (String)data);
-    MessageMapper::mapToRainbow(data, rainbow);
+    MessageMapper::mapToRainbow(data, &adapter);
   }
 };
 
@@ -81,7 +82,7 @@ void setupMDNS()
   }
   Serial.println("mDNS responder started");
 
-  hMDNSService = MDNS.addService(0, "mqtt", "udp", MQTT_PORT);
+  hMDNSService = MDNS.addService(0, "mqtt", "tcp", MQTT_PORT);
 }
 
 void setup()
@@ -95,4 +96,5 @@ void setup()
 void loop()
 {
   MDNS.update();
+  adapter.updateAnimations(millis());
 }

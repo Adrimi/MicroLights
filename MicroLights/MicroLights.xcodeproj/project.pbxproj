@@ -1,0 +1,753 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4ACE75264D5A29003FE25C /* MQTTService.swift */; };
+		3A4EF90A265D605000D204D9 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */; };
+		3A614679265F7BFE00578EC0 /* ConnectableDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A614678265F7BFE00578EC0 /* ConnectableDevice.swift */; };
+		3A61467B265F7CF600578EC0 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A61467A265F7CF600578EC0 /* Feature.swift */; };
+		3A61467D265F7D0700578EC0 /* ContentViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A61467C265F7D0700578EC0 /* ContentViewStore.swift */; };
+		3A61467F265F7D1B00578EC0 /* ConnectableDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A61467E265F7D1B00578EC0 /* ConnectableDeviceView.swift */; };
+		3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */; };
+		3A96F2E72642BAEB00E98937 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2E62642BAEB00E98937 /* MainView.swift */; };
+		3A96F2E92642BAEC00E98937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2E82642BAEC00E98937 /* Assets.xcassets */; };
+		3A96F2EC2642BAEC00E98937 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A96F2EB2642BAEC00E98937 /* Preview Assets.xcassets */; };
+		3A96F2F72642BAEC00E98937 /* MicroLightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F2F62642BAEC00E98937 /* MicroLightsTests.swift */; };
+		3A96F3022642BAEC00E98937 /* MicroLightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96F3012642BAEC00E98937 /* MicroLightsUITests.swift */; };
+		3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */; };
+		878C47C870D6847AC57D0AF1 /* Pods_MicroLights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111493205A2FA17AD679610E /* Pods_MicroLights.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A96F2F32642BAEC00E98937 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A96F2D92642BAEB00E98937 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A96F2E02642BAEB00E98937;
+			remoteInfo = MicroLights;
+		};
+		3A96F2FE2642BAEC00E98937 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A96F2D92642BAEB00E98937 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A96F2E02642BAEB00E98937;
+			remoteInfo = MicroLights;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3A4ACE7C264D5B7F003FE25C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		111493205A2FA17AD679610E /* Pods_MicroLights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MicroLights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A4ACE75264D5A29003FE25C /* MQTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTService.swift; sourceTree = "<group>"; };
+		3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		3A614678265F7BFE00578EC0 /* ConnectableDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectableDevice.swift; sourceTree = "<group>"; };
+		3A61467A265F7CF600578EC0 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		3A61467C265F7D0700578EC0 /* ContentViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewStore.swift; sourceTree = "<group>"; };
+		3A61467E265F7D1B00578EC0 /* ConnectableDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectableDeviceView.swift; sourceTree = "<group>"; };
+		3A96F2E12642BAEB00E98937 /* MicroLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicroLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsApp.swift; sourceTree = "<group>"; };
+		3A96F2E62642BAEB00E98937 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3A96F2E82642BAEC00E98937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A96F2EB2642BAEC00E98937 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3A96F2ED2642BAEC00E98937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A96F2F22642BAEC00E98937 /* MicroLightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MicroLightsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A96F2F62642BAEC00E98937 /* MicroLightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsTests.swift; sourceTree = "<group>"; };
+		3A96F2F82642BAEC00E98937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A96F2FD2642BAEC00E98937 /* MicroLightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MicroLightsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A96F3012642BAEC00E98937 /* MicroLightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroLightsUITests.swift; sourceTree = "<group>"; };
+		3A96F3032642BAEC00E98937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkScanner.swift; sourceTree = "<group>"; };
+		58930BF8524D779A1AD81D8F /* Pods-MicroLights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicroLights.release.xcconfig"; path = "Target Support Files/Pods-MicroLights/Pods-MicroLights.release.xcconfig"; sourceTree = "<group>"; };
+		8C8BE22DD55F2B8A709CFA1B /* Pods-MicroLights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicroLights.debug.xcconfig"; path = "Target Support Files/Pods-MicroLights/Pods-MicroLights.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A96F2DE2642BAEB00E98937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				878C47C870D6847AC57D0AF1 /* Pods_MicroLights.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A96F2EF2642BAEC00E98937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A96F2FA2642BAEC00E98937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AE7567E9F7517B6D51E0545 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C8BE22DD55F2B8A709CFA1B /* Pods-MicroLights.debug.xcconfig */,
+				58930BF8524D779A1AD81D8F /* Pods-MicroLights.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3A4ACE7D264D5B83003FE25C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				111493205A2FA17AD679610E /* Pods_MicroLights.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A614680265F7EB300578EC0 /* Main UI */ = {
+			isa = PBXGroup;
+			children = (
+				3A61467E265F7D1B00578EC0 /* ConnectableDeviceView.swift */,
+				3A96F2E62642BAEB00E98937 /* MainView.swift */,
+			);
+			path = "Main UI";
+			sourceTree = "<group>";
+		};
+		3A614681265F7EBA00578EC0 /* Main Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3A61467C265F7D0700578EC0 /* ContentViewStore.swift */,
+				3A61467A265F7CF600578EC0 /* Feature.swift */,
+				3A614678265F7BFE00578EC0 /* ConnectableDevice.swift */,
+			);
+			path = "Main Presentation";
+			sourceTree = "<group>";
+		};
+		3A614682265F7EC600578EC0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3AF8A68E2642DACF00300B35 /* LocalNetworkScanner.swift */,
+				3A4ACE75264D5A29003FE25C /* MQTTService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3A614683265F7ED000578EC0 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				3A4EF909265D605000D204D9 /* ActivityIndicatorView.swift */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		3A96F2D82642BAEB00E98937 = {
+			isa = PBXGroup;
+			children = (
+				3A96F2E32642BAEB00E98937 /* MicroLights */,
+				3A96F2F52642BAEC00E98937 /* MicroLightsTests */,
+				3A96F3002642BAEC00E98937 /* MicroLightsUITests */,
+				3A96F2E22642BAEB00E98937 /* Products */,
+				3A4ACE7D264D5B83003FE25C /* Frameworks */,
+				2AE7567E9F7517B6D51E0545 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		3A96F2E22642BAEB00E98937 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A96F2E12642BAEB00E98937 /* MicroLights.app */,
+				3A96F2F22642BAEC00E98937 /* MicroLightsTests.xctest */,
+				3A96F2FD2642BAEC00E98937 /* MicroLightsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A96F2E32642BAEB00E98937 /* MicroLights */ = {
+			isa = PBXGroup;
+			children = (
+				3A96F2ED2642BAEC00E98937 /* Info.plist */,
+				3A96F2E42642BAEB00E98937 /* MicroLightsApp.swift */,
+				3A96F2E82642BAEC00E98937 /* Assets.xcassets */,
+				3A614681265F7EBA00578EC0 /* Main Presentation */,
+				3A614680265F7EB300578EC0 /* Main UI */,
+				3A96F2EA2642BAEC00E98937 /* Preview Content */,
+				3A614682265F7EC600578EC0 /* Services */,
+				3A614683265F7ED000578EC0 /* Shared UI */,
+			);
+			path = MicroLights;
+			sourceTree = "<group>";
+		};
+		3A96F2EA2642BAEC00E98937 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3A96F2EB2642BAEC00E98937 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3A96F2F52642BAEC00E98937 /* MicroLightsTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A96F2F62642BAEC00E98937 /* MicroLightsTests.swift */,
+				3A96F2F82642BAEC00E98937 /* Info.plist */,
+			);
+			path = MicroLightsTests;
+			sourceTree = "<group>";
+		};
+		3A96F3002642BAEC00E98937 /* MicroLightsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3A96F3012642BAEC00E98937 /* MicroLightsUITests.swift */,
+				3A96F3032642BAEC00E98937 /* Info.plist */,
+			);
+			path = MicroLightsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A96F2E02642BAEB00E98937 /* MicroLights */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A96F3062642BAEC00E98937 /* Build configuration list for PBXNativeTarget "MicroLights" */;
+			buildPhases = (
+				31D95DF8787DFC95E6F6ED49 /* [CP] Check Pods Manifest.lock */,
+				3A96F2DD2642BAEB00E98937 /* Sources */,
+				3A96F2DE2642BAEB00E98937 /* Frameworks */,
+				3A96F2DF2642BAEB00E98937 /* Resources */,
+				3A4ACE7C264D5B7F003FE25C /* Embed Frameworks */,
+				A3FBECAB59C68ABF1BBD858D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MicroLights;
+			productName = MicroLights;
+			productReference = 3A96F2E12642BAEB00E98937 /* MicroLights.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A96F2F12642BAEC00E98937 /* MicroLightsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A96F3092642BAEC00E98937 /* Build configuration list for PBXNativeTarget "MicroLightsTests" */;
+			buildPhases = (
+				3A96F2EE2642BAEC00E98937 /* Sources */,
+				3A96F2EF2642BAEC00E98937 /* Frameworks */,
+				3A96F2F02642BAEC00E98937 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A96F2F42642BAEC00E98937 /* PBXTargetDependency */,
+			);
+			name = MicroLightsTests;
+			productName = MicroLightsTests;
+			productReference = 3A96F2F22642BAEC00E98937 /* MicroLightsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3A96F2FC2642BAEC00E98937 /* MicroLightsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A96F30C2642BAEC00E98937 /* Build configuration list for PBXNativeTarget "MicroLightsUITests" */;
+			buildPhases = (
+				3A96F2F92642BAEC00E98937 /* Sources */,
+				3A96F2FA2642BAEC00E98937 /* Frameworks */,
+				3A96F2FB2642BAEC00E98937 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A96F2FF2642BAEC00E98937 /* PBXTargetDependency */,
+			);
+			name = MicroLightsUITests;
+			productName = MicroLightsUITests;
+			productReference = 3A96F2FD2642BAEC00E98937 /* MicroLightsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A96F2D92642BAEB00E98937 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					3A96F2E02642BAEB00E98937 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					3A96F2F12642BAEC00E98937 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 3A96F2E02642BAEB00E98937;
+					};
+					3A96F2FC2642BAEC00E98937 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 3A96F2E02642BAEB00E98937;
+					};
+				};
+			};
+			buildConfigurationList = 3A96F2DC2642BAEB00E98937 /* Build configuration list for PBXProject "MicroLights" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A96F2D82642BAEB00E98937;
+			productRefGroup = 3A96F2E22642BAEB00E98937 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A96F2E02642BAEB00E98937 /* MicroLights */,
+				3A96F2F12642BAEC00E98937 /* MicroLightsTests */,
+				3A96F2FC2642BAEC00E98937 /* MicroLightsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A96F2DF2642BAEB00E98937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A96F2EC2642BAEC00E98937 /* Preview Assets.xcassets in Resources */,
+				3A96F2E92642BAEC00E98937 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A96F2F02642BAEC00E98937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A96F2FB2642BAEC00E98937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31D95DF8787DFC95E6F6ED49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MicroLights-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3FBECAB59C68ABF1BBD858D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MicroLights/Pods-MicroLights-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MicroLights/Pods-MicroLights-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MicroLights/Pods-MicroLights-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A96F2DD2642BAEB00E98937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF8A68F2642DACF00300B35 /* LocalNetworkScanner.swift in Sources */,
+				3A61467B265F7CF600578EC0 /* Feature.swift in Sources */,
+				3A4EF90A265D605000D204D9 /* ActivityIndicatorView.swift in Sources */,
+				3A96F2E72642BAEB00E98937 /* MainView.swift in Sources */,
+				3A61467D265F7D0700578EC0 /* ContentViewStore.swift in Sources */,
+				3A4ACE76264D5A29003FE25C /* MQTTService.swift in Sources */,
+				3A614679265F7BFE00578EC0 /* ConnectableDevice.swift in Sources */,
+				3A61467F265F7D1B00578EC0 /* ConnectableDeviceView.swift in Sources */,
+				3A96F2E52642BAEB00E98937 /* MicroLightsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A96F2EE2642BAEC00E98937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A96F2F72642BAEC00E98937 /* MicroLightsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A96F2F92642BAEC00E98937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A96F3022642BAEC00E98937 /* MicroLightsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A96F2F42642BAEC00E98937 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A96F2E02642BAEB00E98937 /* MicroLights */;
+			targetProxy = 3A96F2F32642BAEC00E98937 /* PBXContainerItemProxy */;
+		};
+		3A96F2FF2642BAEC00E98937 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A96F2E02642BAEB00E98937 /* MicroLights */;
+			targetProxy = 3A96F2FE2642BAEC00E98937 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3A96F3042642BAEC00E98937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3A96F3052642BAEC00E98937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A96F3072642BAEC00E98937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C8BE22DD55F2B8A709CFA1B /* Pods-MicroLights.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MicroLights/Preview Content\"";
+				DEVELOPMENT_TEAM = UHULAJL778;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MicroLights",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+				);
+				INFOPLIST_FILE = MicroLights/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.adrianszymanowski.MicroLights;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A96F3082642BAEC00E98937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58930BF8524D779A1AD81D8F /* Pods-MicroLights.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MicroLights/Preview Content\"";
+				DEVELOPMENT_TEAM = UHULAJL778;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MicroLights",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+					"$(PROJECT_DIR)/MicroLights/Static\\ Frameworks",
+				);
+				INFOPLIST_FILE = MicroLights/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.adrianszymanowski.MicroLights;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3A96F30A2642BAEC00E98937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHULAJL778;
+				INFOPLIST_FILE = MicroLightsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.adrianszymanowski.MicroLightsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MicroLights.app/MicroLights";
+			};
+			name = Debug;
+		};
+		3A96F30B2642BAEC00E98937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHULAJL778;
+				INFOPLIST_FILE = MicroLightsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.adrianszymanowski.MicroLightsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MicroLights.app/MicroLights";
+			};
+			name = Release;
+		};
+		3A96F30D2642BAEC00E98937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHULAJL778;
+				INFOPLIST_FILE = MicroLightsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.adrianszymanowski.MicroLightsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MicroLights;
+			};
+			name = Debug;
+		};
+		3A96F30E2642BAEC00E98937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHULAJL778;
+				INFOPLIST_FILE = MicroLightsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.adrianszymanowski.MicroLightsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MicroLights;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A96F2DC2642BAEB00E98937 /* Build configuration list for PBXProject "MicroLights" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A96F3042642BAEC00E98937 /* Debug */,
+				3A96F3052642BAEC00E98937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A96F3062642BAEC00E98937 /* Build configuration list for PBXNativeTarget "MicroLights" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A96F3072642BAEC00E98937 /* Debug */,
+				3A96F3082642BAEC00E98937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A96F3092642BAEC00E98937 /* Build configuration list for PBXNativeTarget "MicroLightsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A96F30A2642BAEC00E98937 /* Debug */,
+				3A96F30B2642BAEC00E98937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A96F30C2642BAEC00E98937 /* Build configuration list for PBXNativeTarget "MicroLightsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A96F30D2642BAEC00E98937 /* Debug */,
+				3A96F30E2642BAEC00E98937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A96F2D92642BAEB00E98937 /* Project object */;
+}
